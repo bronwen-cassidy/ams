@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	
+	<!-- ID Range: 1-50  Once asset is going to -->
+  	<acumen.asset_schedule id="21" lease_commences="2014-05-09" lease_expires="2014-05-10" date_collected_deployed="2014-05-10" asset_id="50" tenant_id="1" created_by="audit" created_date="2014-05-08 18:53:43.47" last_updated_by="audit" last_updated_date="2014-05-08 18:53:43.47" version_number="0"/>
+
+</dataset>

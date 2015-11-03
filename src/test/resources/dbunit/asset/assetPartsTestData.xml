@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<!-- 
+		Asset Parts Ids start at 200
+		Note. This script depends on the follow and must be included within the test:
+		assets/assetsTestData.xml
+		parties/suppliersTestData.xml
+		systemAdmin/userDataOneOfEachTestData.xml
+	 -->
+
+	<acumen.asset_parts id="200" assets_child_id="51" assets_parent_id="50" tenant_id="1" created_by="suppliersTestData.xml" created_date="2014-05-08 18:41:10.081" last_updated_by="suppliersTestData.xml" last_updated_date="2014-05-08 18:41:10.081" version_number="0"/>
+		
+</dataset>

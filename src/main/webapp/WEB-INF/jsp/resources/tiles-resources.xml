@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<!-- Base Definition -->
+	<definition name="resources.base" extends="das.base.template">
+        <put-attribute name="title" value="resources Register" />
+        <put-attribute name="screenTitle" value="resources Register" />
+        <put-attribute name="header" value="resources.header.base" />
+        <put-attribute name="tabs" value="resources.maintabs" />
+        <put-attribute name="scratchpad" value="scratchpad.empty" />
+        <put-attribute name="menu" value="resources.menus" />
+    </definition>
+    
+     <!-- Header -->
+    <definition name="resources.header.base" extends="das.header">
+    </definition>
+    
+    <!-- Main Tabs -->
+    <definition name="resources.maintabs" extends="das.maintabs">
+		<put-attribute name="activeTab" value="mainMenuTab.resources" />
+    </definition>
+    
+    <!-- Sidebar -->
+    <definition name="resources.menus" extends="das.menus">
+    	<put-list-attribute name="menuList">
+    		<add-attribute role="sideMenu.resources.requests" value="#"/>
+    		<add-attribute role="sideMenu.resources.resourceGroups" value="#"/>
+    		<add-attribute role="sideMenu.resources.calendar" value="#"/>
+    		<add-attribute role="sideMenu.resources.reports" value="#"/>
+    	</put-list-attribute> 
+    </definition>
+    
+ 	<!-- The resources landing screen -->
+    <definition name="resource.home" extends="resources.base">
+        <put-attribute name="body" value="/WEB-INF/jsp/resources/resourcesLandingScreen.jsp" />
+        <put-attribute name="scratchpad">
+        	<definition extends="scratchpad.template">
+        		<put-list-attribute name="sps">
+		    		<add-attribute value="scratchpad.finance"/>
+		    		<add-attribute value="scratchpad.custodian"/>
+		    		<add-attribute value="scratchpad.help"/>
+		    		<add-attribute value="scratchpad.faultcodes"/>
+		    		<add-attribute value="scratchpad.docsimages"/>
+		    		<add-attribute value="scratchpad.parts"/>
+		    		<add-attribute value="scratchpad.groups"/>
+		    	</put-list-attribute>
+        	</definition>
+        </put-attribute>
+    </definition>
+</tiles-definitions>

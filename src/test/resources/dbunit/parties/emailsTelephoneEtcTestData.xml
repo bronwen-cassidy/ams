@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+  <!-- 
+		Address IDs start at 200
+		Email IDs start at 300
+		Telephone IDs start at 400
+		
+		This script depends on the follow and must be included within the test:
+		No dependencies
+	 -->
+	
+	<!-- Uses asset 51 - An asset with lease out and extras -->
+
+	
+   	<acumen.addresses id="200" address_line_1="Test Address Line 1" address_line_2="Test Address Line 2" address_line_3="Test Address Line 3" zip_post_code="M50 2NT" city="Manchester" country="Test Country" type_of_place="Large" tenant_id="1" created_by="emailsTelephoneEtcTestData.xml" version_number="0" last_updated_by="emailsTelephoneEtcTestData.xml" />
+	<acumen.tel_numbers id="400" tel_no="1234567890" tenant_id="1" created_by="emailsTelephoneEtcTestData.xml" last_updated_by="emailsTelephoneEtcTestData.xml" version_number="0"/>
+	<acumen.emails id="300" email_address="test@aspeKt.kool.com" tenant_id="1" created_by="emailsTelephoneEtcTestData.xml" last_updated_by="emailsTelephoneEtcTestData.xml" version_number="0"/>
+	
+</dataset>

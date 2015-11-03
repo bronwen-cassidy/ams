@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<acumen.parties id="50" uid="party_uid_12345678912345" tenant_id="1" created_by="sje" created_date="2014-05-08 18:41:10.081" last_updated_by="sje" last_updated_date="2014-07-21 14:53:05.043" version_number="1"/>
+	<acumen.parties id="51" uid="party_uid_52345678924581" tenant_id="1" created_by="sje" created_date="2014-05-08 18:41:10.081" last_updated_by="sje" last_updated_date="2014-07-21 14:54:10.123" version_number="1"/>
+	
+	<acumen.companies parties_id="50" name="Ace Suppliers Ltd" reg_no="1234" vat_no="929293" tenant_id="1" created_by="sje" created_date="2014-05-08 18:41:54.475" last_updated_by="sje" last_updated_date="2014-05-08 18:41:54.475"/>
+  	<acumen.people parties_id="51" forenames="Peter" surname="Griffin" gender="M" tenant_id="1" created_by="sje" created_date="2014-07-21 14:56:43.47" last_updated_by="sje" last_updated_date="2014-07-21 14:59:04.31"/>
+  	  	
+  	<acumen.tel_numbers id="50" tel_no="1234567890" tenant_id="1" created_by="audit" last_updated_by="audit" version_number="0"/>
+  	<acumen.tel_numbers id="51" tel_no="6789072931" tenant_id="1" created_by="audit" last_updated_by="audit" version_number="0"/>
+  	
+  	<acumen.party_telephone_numbers id="50" parties_id="50" tel_numbers_id="50" tel_numbers_type="Test Tel Number Type" tenant_id="1" created_by="audit" created_date="2001-01-04 00:00:00.000" last_updated_by="audit" last_updated_date="2021-01-04 00:00:00.000" version_number="0"/>
+  	<acumen.party_telephone_numbers id="51" parties_id="51" tel_numbers_id="51" tel_numbers_type="Work phone" tenant_id="1" created_by="audit" created_date="2001-01-04 00:00:00.000" last_updated_by="audit" last_updated_date="2021-01-04 00:00:00.000" version_number="0"/>
+</dataset>

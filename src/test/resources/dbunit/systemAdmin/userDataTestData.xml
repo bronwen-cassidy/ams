@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!-- 
+	Test data for User Data.
+	Assumes that the Permanent DB data for User Data types and Categories exists within the DB already
+ -->
+<dataset>
+	<!-- User data for type 3 - 'Country' -->
+ 	<acumen.user_data id="9991" user_data_types_id="3" name="USA"  ud_order="3" active="true" tenant_id="1" version_number="1" created_by="userDataTestData.xml" created_date="2014-08-08 18:41:10" last_updated_by="userDataTestData.xml" last_updated_date="2014-08-08 18:41:10"/>
+	
+	<!-- User data for type 4 - 'Company' -->
+ 	<acumen.user_data id="9994" user_data_types_id="4" name="Acme Products"  ud_order="3" active="true" tenant_id="1" version_number="1" created_by="userDataTestData.xml" created_date="2014-08-08 18:41:10" last_updated_by="userDataTestData.xml" last_updated_date="2014-08-08 18:41:10"/>
+	
+	<!-- User data which has descendant data type 3 County - type 4 Company-->
+ 	<acumen.user_data id="9992" user_data_types_id="3" name="Fiji" ud_order="3" active="true" tenant_id="1" version_number="1" created_by="userDataTestData.xml" created_date="2014-08-08 18:41:10" last_updated_by="userDataTestData.xml" last_updated_date="2014-08-08 18:41:10"/>
+ 	<acumen.user_data id="9993" user_data_types_id="4" name="Ace Casino" ud_order="3" active="true" tenant_id="1" version_number="1" created_by="userDataTestData.xml" created_date="2014-08-08 18:41:10" last_updated_by="userDataTestData.xml" last_updated_date="2014-08-08 18:41:10"/>
+ 	<acumen.user_data_links id="8881" ancestor_id="9992" descendant_id="9993" tenant_id="1" version_number="1" created_by="userDataTestData.xml" created_date="2014-08-08 18:41:10" last_updated_by="userDataTestData.xml" last_updated_date="2014-08-08 18:41:10"/>
+</dataset>

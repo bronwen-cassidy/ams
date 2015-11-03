@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<acumen.parties id="1" uid="das_pt_1216396282453037280" tenant_id="1" created_by="sje" created_date="2014-05-08 18:41:10.081" last_updated_by="sje" last_updated_date="2014-05-08 18:41:10.081" version_number="1"/>
+	<acumen.parties id="2" uid="das_pt_1216396282453037280" tenant_id="1" created_by="sje" created_date="2014-05-08 18:41:10.081" last_updated_by="sje" last_updated_date="2014-05-08 18:41:10.081" version_number="1"/>
+	
+	<acumen.companies parties_id="1" name="Churchill Ltd" reg_no="1234" vat_no="929293" tenant_id="1" created_by="sje" created_date="2014-05-08 18:41:54.475" last_updated_by="sje" last_updated_date="2014-05-08 18:41:54.475"/>
+	<acumen.companies parties_id="2" name="Churchill Ltd" reg_no="1234" vat_no="929293" tenant_id="1" created_by="sje" created_date="2014-05-08 18:41:54.475" last_updated_by="sje" last_updated_date="2014-05-08 18:41:54.475"/>
+	
+	
+	<acumen.user_data id="1" user_data_types_id="1" name="jacksData" ud_order="1" active="true" tenant_id="1" created_by="jack" created_date="2014-06-08 18:41:54.475" last_updated_by="jim" last_updated_date="2014-07-08 18:41:54.475" version_number="1"/>
+	<acumen.user_data id="2" user_data_types_id="1" name="jacksData" ud_order="1" active="true" tenant_id="1" created_by="jack" created_date="2014-06-08 18:41:54.475" last_updated_by="jim" last_updated_date="2014-07-08 18:41:54.475" version_number="1"/>
+	
+	<acumen.assets id="1" company_id="1" asset_status_id="1" supplier_id="1" custodian_id="1" asset_number_part_1_id="1" asset_number_part_2_id="1" asset_number_part_3_id="1" asset_number_part_4="1" site_id="1" location_id="1" division_id="1" department_id="1" depreciation_code="1" country_id="1" category_id="1" uid="das_bf_2277775602968850114" name="Spanner" description="test" serial_number="12345" supplier_pn="item1" is_a_facility="false" is_equipment="false" is_part="false" critical_asset="false" risk_assessment="false" bcp="false" tenant_id="1" version_number="1"/>
+	
+	<acumen.tenants id="1" bucket_name="BUCKET1234" company_name="JLA" created_by="JamesWesker@jla.co.uk" created_date="2001-01-04 00:00:00.000" last_updated_by="chrisredfield@jla.co.uk" last_updated_date="2021-01-04 00:00:00.000" version_number="0"/>
+  	
+  	<acumen.docs id="1" tenants_id="1" object_key="FilePathOnS3" doc_type="MAINIMAGE" tenant_id="1" created_by="audit" created_date="2001-01-04 00:00:00.000" last_updated_by="audit" last_updated_date="2021-01-04 00:00:00.000" version_number="0"/>
+	<acumen.docs id="2" tenants_id="1" object_key="FilePathOnS3" doc_type="MAINIMAGE" tenant_id="1" created_by="audit" created_date="2001-01-04 00:00:00.000" last_updated_by="audit" last_updated_date="2021-01-04 00:00:00.000" version_number="0"/>
+	
+	<acumen.maintenance id="1" assets_id="1" third_party_supplier_id="1" fault_code_id="1" fault_code_category_id="1" doc_type="MAINIMAGE" third_party_provider="true" tag="true" tag_note="tag required" ppm_required="true" ppm_required_note="ppm required" maintenance_mandatory="true" maintenance_mandatory_note="maintenance mandatory" maintenance_document_type="true" tenant_id="1" created_by="audit" created_date="2001-01-04 00:00:00.000" last_updated_by="audit" last_updated_date="2021-01-04 00:00:00.000" version_number="1"/>
+</dataset>

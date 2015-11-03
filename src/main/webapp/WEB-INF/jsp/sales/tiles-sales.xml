@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<!-- Base Definition -->
+	<definition name="sales.base" extends="das.base.template">
+		<put-attribute name="title" value="sales Register" />
+		<put-attribute name="screenTitle" value="sales Register" />
+		<put-attribute name="header" value="sales.header.base" />
+		<put-attribute name="tabs" value="sales.maintabs" />
+		<put-attribute name="scratchpad" value="scratchpad.empty" />
+		<put-attribute name="menu" value="sales.menus" />
+	</definition>
+
+	<!-- Header -->
+	<definition name="sales.header.base" extends="das.header">
+	</definition>
+
+	<!-- Main Tabs -->
+	<definition name="sales.maintabs" extends="das.maintabs">
+		<put-attribute name="activeTab" value="mainMenuTab.sales" />
+	</definition>
+
+	<!-- Sidebar -->
+	<definition name="sales.menus" extends="das.menus">
+		<put-list-attribute name="menuList">
+			<add-attribute role="sideMenu.sales.proposals" value="das/assetAvailability" />
+			<add-attribute role="sideMenu.sales.deploymentView" value="das/deployment" />
+			
+			<!-- @TODO XXX - add side menu's <add-attribute role="sideMenu.sales.???" 
+				value="./das....??"/> <add-attribute role="sideMenu.sales.salesLanding" value="#"/> -->
+
+		</put-list-attribute>
+	</definition>
+
+	
+	
+	<!-- The sales landing screen -->
+	<definition name="sales.home" extends="sales.base">
+		<put-attribute name="body" value="/WEB-INF/jsp/sales/salesLandingScreen.jsp" />
+		<put-attribute name="menu">
+			<definition extends="sales.menus">
+				<put-attribute name="activeMenu" value="sideMenu.sales.proposals" />
+			</definition>
+		</put-attribute>
+		<put-attribute name="scratchpad">
+			<definition extends="scratchpad.template">
+				<put-list-attribute name="sps">
+					<!-- <add-attribute value="scratchpad.salesSearch"/> -->
+					<add-attribute value="scratchpad.name" />
+					<add-attribute value="scratchpad.sales" />
+					<add-attribute value="scratchpad.sales.client" />
+					<add-attribute value="scratchpad.help" />
+				</put-list-attribute>
+			</definition>
+		</put-attribute>
+	</definition>
+
+	<!-- The Asset Availability search -->
+	<definition name="asset.availability.searchResults"
+		template="/WEB-INF/jsp/sales/leaseOrder/assetAvailabilitySearchResults.jsp">
+	</definition>
+
+	<!-- The Asset Availability search -->
+	<definition name="asset.availability.search" extends="sales.base">
+		<put-attribute name="screenTitle"
+			value="sideMenu.sales.searchAvailableAssets" cascade="true" />
+		<put-attribute name="scratchpad">
+			<definition extends="scratchpad.template">
+				<put-list-attribute name="sps">
+					<add-attribute value="scratchpad.sales.preview" />
+					<add-attribute value="scratchpad.sales.client" />
+					<add-attribute value="scratchpad.help.preview" />
+				</put-list-attribute>
+			</definition>
+		</put-attribute>
+		<put-attribute name="body">
+			<definition extends="das.search">
+				<put-attribute name="searchContent"
+					value="/WEB-INF/jsp/sales/leaseOrder/assetAvailabilitySearch.jsp" />
+			</definition>
+		</put-attribute>
+	</definition>
+
+	<definition name="proposal.create" extends="sales.base">
+		<put-attribute name="screenTitle" value="sideMenu.sales.createProposal"
+			cascade="true" />
+		<put-attribute name="scratchpad">
+			<definition extends="scratchpad.template">
+				<put-list-attribute name="sps">
+					<add-attribute value="scratchpad.sales.preview" />
+					<add-attribute value="scratchpad.sales.client" />
+					<add-attribute value="scratchpad.help.preview" />
+				</put-list-attribute>
+			</definition>
+		</put-attribute>
+		<put-attribute name="body">
+			<definition extends="das.search">
+				<put-attribute name="searchContent"
+					value="/WEB-INF/jsp/sales/proposal/createProposal.jsp" />
+			</definition>
+		</put-attribute>
+	</definition>
+
+	<definition name="proposal.confirm" extends="sales.base">
+		<put-attribute name="screenTitle"
+			value="sideMenu.sales.invoicingInformation" cascade="true" />
+		<put-attribute name="body">
+			<definition extends="das.search">
+				<put-attribute name="searchContent"
+					value="/WEB-INF/jsp/sales/proposal/confirmProposal.jsp" />
+			</definition>
+		</put-attribute>
+	</definition>
+
+	 <definition name="sales.deployment.deploymentView" extends="sales.base">
+		<put-attribute name="body" value="/WEB-INF/jsp/sales/salesDeploymentView.jsp" />
+		<put-attribute name="menu">
+			<definition extends="sales.menus">
+				<put-attribute name="activeMenu" value="sideMenu.sales.deploymentView" />
+			</definition>
+		</put-attribute>
+		<put-attribute name="scratchpad">
+			<definition extends="scratchpad.template">
+				<put-list-attribute name="sps">
+					<!-- <add-attribute value="scratchpad.salesSearch"/> -->
+					<add-attribute value="scratchpad.name" />
+					<add-attribute value="scratchpad.sales" />
+					<add-attribute value="scratchpad.sales.client" />
+					<add-attribute value="scratchpad.help" />
+				</put-list-attribute>
+			</definition>
+		</put-attribute>
+	</definition>
+	
+	<definition name="sales.deployment.deploy" extends="sales.base">
+   		<put-attribute name="screenTitle"  value="sales.assetDeployment.deployTitle"  cascade="true"/>
+        <put-attribute name="body" >
+        	<definition extends="das.search">
+        		<put-attribute name="searchContent" value="/WEB-INF/jsp/sales/deployment/deploymentView.jsp" />
+        	</definition>
+        </put-attribute>
+   	</definition>
+   	
+   	<definition name="sales.deployment.deploySubmit" extends="sales.base">
+   	<put-attribute name="screenTitle" value="sales.assetDeployment.deployTitle"/>
+   	<put-attribute name="body" value="/WEB-INF/jsp/sales/deployment/deploySubmit.jsp"/>
+   	</definition>
+   	
+   	<definition name="sales.deployment.mobileConfirmation" extends="publicClientProposal.base">
+   	<put-attribute name="screenTitle" value="sales.assetDeployment.deploymentConfirmedMsg"/>
+   	<put-attribute name="body" value="/WEB-INF/jsp/sales/deployment/deploymentMobileConfirmation.jsp" />
+   	</definition>
+
+</tiles-definitions>

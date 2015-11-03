@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+    <definition name="das.base.template" template="/WEB-INF/jsp/templates/layout.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="screenTitle" value="" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="header" value="" />
+        <put-attribute name="tabs" value="" />
+        <put-attribute name="scratchpad" value="" />
+        <put-attribute name="contextmenu" value="" />
+        <put-attribute name="menu" value="" />
+    </definition>
+    
+    <definition name="das.tabs" template="/WEB-INF/jsp/templates/tabs.jsp">
+    </definition>
+    
+    <!-- The Main module tabs. Won't change much but some might be disabled with permissions or purchased
+    modules. -->
+    <definition name="das.maintabs" template="/WEB-INF/jsp/templates/maintabs.jsp">
+    	<put-list-attribute name="tabList">
+    		<add-attribute role="mainMenuTab.assets" value="./das/assetRegister"/>
+    		<add-attribute role="mainMenuTab.maintenance" value="./das/maintenance"/>
+    		<add-attribute role="mainMenuTab.resources" value="./das/resources"/>
+    		<add-attribute role="mainMenuTab.parts" value="#"/>
+    		<add-attribute role="mainMenuTab.location" value="#"/>
+    		<add-attribute role="mainMenuTab.financal" value="./das/financial"/>
+    		<add-attribute role="mainMenuTab.sales" value="./das/assetAvailability"/>
+    	</put-list-attribute>
+    </definition>
+    
+    <!-- The menus on the left hand side -->
+    <definition name="das.menus" template="/WEB-INF/jsp/templates/menu.jsp">
+    </definition>
+    
+    <!-- The DAS Header across the top of all pages -->
+    <definition name="das.header" template="/WEB-INF/jsp/templates/header.jsp">
+    	<put-list-attribute name="navLinks">
+    		<add-attribute role="header.createrecord" value="#"/>
+    		<add-attribute role="header.file" value="#"/>
+    		<add-attribute role="header.edit" value="#"/>
+    		<add-attribute role="header.groups" value="#"/>
+    		
+    	</put-list-attribute>
+    </definition>
+    
+     <!-- The Print Template -->
+    <definition name="das.print" template="/WEB-INF/jsp/templates/print.jsp">
+    </definition>
+    
+    <!-- Full search template to give common look and feel -->
+    <definition name="das.search" template="/WEB-INF/jsp/templates/search.jsp">
+    </definition>
+
+</tiles-definitions>

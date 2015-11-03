@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+		version="2.0">
+
+	<!-- 
+		This is a straight extension of the Spring Form tag library, in order to add additional
+		functionality. Initially this is for the drag and drop functionaility.
+		
+		DO NOT PUT BESPOKE TAG IN HERE. Create another tag library all together
+		
+		There is currently no mechanism for extending a tag. What is happening here is we
+		are re-defining all the tags from spring
+	 -->
+
+	<description>DAS tag library</description>
+	<tlib-version>4.0</tlib-version>
+	<short-name>das</short-name>
+	<uri></uri>
+
+	<tag>
+		<description>Builds draggable attributes from a draggable object.</description>
+		<name>draggable</name>
+		<tag-class>com.xioq.dasacumen.web.taglib.DraggableTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<description>Name of the variable to add the draggable attributes</description>
+			<name>var</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>The bean to test if it is a draggable</description>
+			<name>bean</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<dynamic-attributes>false</dynamic-attributes>
+	</tag>
+	
+	<tag>
+		<description>Builds droppable attributes from a draggable form. Expecs to be within a form tag to find all the fields.</description>
+		<name>droppable</name>
+		<tag-class>com.xioq.dasacumen.web.taglib.DroppableTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<description>Name of the variable to add the draggable attributes. Optional, if not provided then will output a script</description>
+			<name>var</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Name of the form to attach the data fields to. </description>
+			<name>formId</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>The bean to test if it is a droppable</description>
+			<name>bean</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<dynamic-attributes>false</dynamic-attributes>
+	</tag>
+	
+	<tag>
+		<description>Retrieves UserData based on the UserData's ID or the UserData's type, the data will then be stored in an attribute named by the tags attribute 'var'. If userDataId is provided and userDataType is not, the tag will return one field of UserData based on the UserData's ID. If the userDataId and userDataType are provided, the tag will return one field of UserData based on the UserData's ID. If the userDataType is provided and the userDataId is not, the tag will return a collection of UserData based on the UserData type.</description>
+		<name>userdata</name>
+		<tag-class>com.xioq.dasacumen.web.taglib.UserDataTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<description>Used to search for the UserData based on the UserData's ID - This is OPTIONAL IF userDataType is supplied and REQUIRED IF userDataType is NOT supplied. Example: id="1" where the 1 is the UserData ID. Note: this is passed as a String then parsed to a Long. This MUST be of data type Long.</description>
+			<name>userDataId</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Used to search for the UserData based on the UserData's type using Enum constants from
+                com.xioq.dasacumen.model.constants.UserDataType - This is OPTIONAL IF userDataId is supplied and
+                REQUIRED IF userDataId is NOT supplied. Example: type="COUNTRY" where 'COUNTRY' is the Enum constant</description>
+			<name>userDataType</name>
+			<rtexprvalue>true</rtexprvalue>
+			<type>com.xioq.dasacumen.model.constants.UserDataType</type>
+		</attribute>
+		<attribute>
+			<description>The name of the attribute which stores the UserData, allowing the access of the UserData in the JSP</description>
+			<name>var</name>
+			<required>true</required>
+		</attribute>
+	</tag>
+</taglib>

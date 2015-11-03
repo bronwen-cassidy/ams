@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<!-- Base Definition -->
+	<definition name="finance.base" extends="das.base.template">
+        <put-attribute name="title" value="finance Register" />
+        <put-attribute name="screenTitle" value="finance Register" />
+        <put-attribute name="header" value="finance.header.base" />
+        <put-attribute name="tabs" value="finance.maintabs" />
+        <put-attribute name="scratchpad" value="scratchpad.empty" />
+        <put-attribute name="menu" value="finance.menus" />
+    </definition>
+    
+    <!-- Header -->
+    <definition name="finance.header.base" extends="das.header">
+    </definition>
+    
+    <!-- Main Tabs -->
+    <definition name="finance.maintabs" extends="das.maintabs">
+		<put-attribute name="activeTab" value="mainMenuTab.financal" />
+    </definition>
+    
+    <!-- Sidebar -->
+    <definition name="finance.menus" extends="das.menus">
+    	<put-list-attribute name="menuList">
+    		<add-attribute role="sideMenu.finance.supplierLanding" value="./das/financial/supplier/register"/> 
+    		<add-attribute role="sideMenu.finance.clientLanding" value="./das/financial/client/register"/>
+    		<!-- <add-attribute role="sideMenu.finance.searchFinancial" value="#"/>  -->
+    		<add-attribute role="sideMenu.finance.calendar" value="#"/>
+    		<add-attribute role="sideMenu.finance.reports" value="#"/>
+    		<add-attribute role="sideMenu.finance.invoicing" value="./das/invoice"/>
+    	</put-list-attribute>
+    </definition>
+    
+ 	<!-- The supplier landing screen -->
+    <definition name="finance.home" extends="finance.base">
+        <put-attribute name="body" value="/WEB-INF/jsp/financial/supplierLandingScreen.jsp" />
+        <put-attribute name="menu">
+        	<definition extends="finance.menus">
+        		<put-attribute name="activeMenu" value="sideMenu.finance.supplierLanding" />
+        	</definition>
+        </put-attribute>
+        <put-attribute name="scratchpad">
+        	<definition extends="scratchpad.template">
+        		<put-list-attribute name="sps">
+<!-- 		    		<add-attribute value="scratchpad.financeSearch"/>
+ -->		    		<add-attribute value="scratchpad.name"/>
+		    		<add-attribute value="scratchpad.finance"/>
+		    		<add-attribute value="scratchpad.custodian"/>
+		    		<add-attribute value="scratchpad.help"/>
+		    		<add-attribute value="scratchpad.faultcodes"/>
+		    		<add-attribute value="scratchpad.docsimages"/>
+		    		<add-attribute value="scratchpad.parts"/>
+		    		<add-attribute value="scratchpad.groups"/>
+		    	</put-list-attribute>
+        	</definition>
+        </put-attribute>
+    </definition>
+    
+    <!-- Client Landing Screen -->
+     <definition name="finance.client" extends="finance.base">
+        <put-attribute name="body" value="/WEB-INF/jsp/financial/clientLandingScreen.jsp" />
+        <put-attribute name="menu">
+        	<definition extends="finance.menus">
+        		<put-attribute name="activeMenu" value="sideMenu.finance.clientLanding" />
+        	</definition>
+        </put-attribute>
+        <put-attribute name="scratchpad">
+        	<definition extends="scratchpad.template">
+        		<put-list-attribute name="sps">
+	    		<add-attribute value="scratchpad.name"/>
+		    		<add-attribute value="scratchpad.finance"/>
+		    		<add-attribute value="scratchpad.custodian"/>
+		    		<add-attribute value="scratchpad.help"/>
+		    		<add-attribute value="scratchpad.faultcodes"/>
+		    		<add-attribute value="scratchpad.docsimages"/>
+		    		<add-attribute value="scratchpad.parts"/>
+		    		<add-attribute value="scratchpad.groups"/>
+		    	</put-list-attribute>
+        	</definition>
+        </put-attribute>
+    </definition>
+    
+    <!-- The invoice landing screen -->
+    <definition name="finance.invoicing" extends="finance.base">
+        <put-attribute name="body" value="/WEB-INF/jsp/financial/invoiceTable.jsp" />
+        <put-attribute name="menu">
+        	<definition extends="finance.menus">
+        		<put-attribute name="activeMenu" value="sideMenu.finance.invoicing" />
+        	</definition>
+        </put-attribute>
+    </definition>
+    
+    <!-- The invoice  screen -->
+    <definition name="finance.invoicing.details" extends="finance.base">
+        <put-attribute name="body" value="/WEB-INF/jsp/financial/invoiceDetails.jsp" />
+        <put-attribute name="menu">
+        	<definition extends="finance.menus">
+        		<put-attribute name="activeMenu" value="sideMenu.finance.invoicing" />
+        	</definition>
+        </put-attribute>
+    </definition>
+    
+    <!-- The SPs are all the same for Create Supplier and Client -->
+    <definition name="finance.createSupplierClient.scratchpads" extends="scratchpad.template">
+		<put-list-attribute name="sps">
+    		<add-attribute value="scratchpad.finance.set1"/>
+    		<add-attribute value="scratchpad.docsimages"/>
+    		<add-attribute value="scratchpad.help"/>
+    	</put-list-attribute>
+	</definition>
+    
+    <!-- Create supplier base. Specific Menu and SP. 'Create new supplier' always active menu item-->
+    <definition name="finance.register.createSupplier.base" extends="finance.base">
+        <put-attribute name="menu">
+        	<definition extends="finance.menus">
+        		<put-attribute name="activeMenu" value="sideMenu.finance.createNewSupplier" />
+        	</definition>
+        </put-attribute>
+        <put-attribute name="scratchpad" value="finance.createSupplierClient.scratchpads"/>
+    </definition>
+ 
+ 	<!-- Create Supplier Tabs -->
+ 	<definition name="finance.supplier.create.tabs" extends="das.tabs">
+ 		<put-attribute name="tabsTitle" value="Create new Supplier"/>
+    	<put-list-attribute name="tabs">
+    		<add-attribute role="finance.supplier.financialMenuTab.supplierDetails" value="das/financial/supplier/create/supplierTab"/>
+    		<add-attribute role="finance.supplier.financialMenuTab.financialDetails" value="das/financial/supplier/create/financialTab"/>
+    		<add-attribute role="finance.supplier.financialMenuTab.otherDetails" value="/das/financial/supplier/create/otherTab"/>
+    	</put-list-attribute>
+    </definition>
+
+    <!-- Supplier Details Tab -->
+    <definition name="finance.supplier.create.supplierTab" extends="finance.register.createSupplier.base">
+        <put-attribute name="menu">
+        	<definition extends="finance.menus">
+        		<put-attribute name="activeMenu" value="sideMenu.finance.supplierLanding" />
+        	</definition>
+        </put-attribute>
+        <put-attribute name="title" value="Supplier Details" />
+        <put-attribute name="body">
+        	<definition extends="finance.supplier.create.tabs">
+        		<put-attribute name="activeTab" value="finance.supplier.financialMenuTab.supplierDetails" />
+        		<put-attribute name="tabContent" value="/WEB-INF/jsp/financial/createSupplier/supplier-tab.jsp" />
+        	</definition>
+        </put-attribute>
+    </definition>
+    
+        <!-- Add Contacts -->
+    <definition name="finance.supplier.create.contacts" extends="finance.register.createSupplier.base">
+        <put-attribute name="menu">
+        	<definition extends="finance.menus">
+        		<put-attribute name="activeMenu" value="sideMenu.finance.supplierLanding" />
+        	</definition>
+        </put-attribute>
+        <put-attribute name="title" value="Supplier Details" />
+        <put-attribute name="body">
+        	<definition extends="finance.supplier.create.tabs">
+        		<put-attribute name="activeTab" value="finance.supplier.financialMenuTab.supplierDetails" />
+        		<put-attribute name="tabContent" value="/WEB-INF/jsp/financial/addContacts.jsp" />
+        	</definition>
+        </put-attribute>
+    </definition>
+
+    <!-- Supplier - Financial Details Tab -->
+    <definition name="finance.supplier.create.financialTab" extends="finance.register.createSupplier.base">
+        <put-attribute name="menu">
+        	<definition extends="finance.menus">
+        		<put-attribute name="activeMenu" value="sideMenu.finance.supplierLanding" />
+        	</definition>
+        </put-attribute>
+        <put-attribute name="title" value="Financial Details" />
+        <put-attribute name="body">
+        	<definition extends="finance.supplier.create.tabs">
+        		<put-attribute name="activeTab" value="finance.supplier.financialMenuTab.financialDetails" />
+        		<put-attribute name="tabContent" value="/WEB-INF/jsp/financial/createSupplier/financial-tab.jsp" />
+        	</definition>
+        </put-attribute>
+    </definition>
+    
+    <!-- Supplier - Other Tab -->
+    <definition name="finance.supplier.create.otherTab" extends="finance.register.createSupplier.base">
+        <put-attribute name="menu">
+        	<definition extends="finance.menus">
+        		<put-attribute name="activeMenu" value="sideMenu.finance.supplierLanding" />
+        	</definition>
+        </put-attribute>
+        <put-attribute name="title" value="Other" />
+        <put-attribute name="body">
+        	<definition extends="finance.supplier.create.tabs">
+        		<put-attribute name="activeTab" value="finance.supplier.financialMenuTab.otherDetails" />
+        		<put-attribute name="tabContent" value="/WEB-INF/jsp/financial/createSupplier/other-tab.jsp" />
+        	</definition>
+        </put-attribute>
+    </definition>
+    <!-- End Create Supplier --> 
+    
+    <!-- Create Client base. Specific Menu and SP. 'Create new client' always active menu item-->
+    <definition name="finance.client.create.base" extends="finance.base">
+        <put-attribute name="menu">
+        	<definition extends="finance.menus">
+        		<put-attribute name="activeMenu" value="sideMenu.finance.createNewClient" />
+        	</definition>
+        </put-attribute>
+        <put-attribute name="scratchpad" value="finance.createSupplierClient.scratchpads"/>
+    </definition>
+ 
+    <!-- Create Client Tabs -->
+ 	<definition name="finance.client.create.tabs" extends="das.tabs">
+ 		<put-attribute name="tabsTitle" value="Create new Client"/>
+    	<put-list-attribute name="tabs">
+    		<add-attribute role="finance.client.financialMenuTab.clientDetails" value="/das/financial/client/create/clientTab"/>
+    		<add-attribute role="finance.client.financialMenuTab.financialDetails" value="/das/financial/client/create/financialTab"/>
+    		<add-attribute role="finance.client.financialMenuTab.otherDetails" value="/das/financial/client/create/otherTab"/>
+    	</put-list-attribute>
+    </definition>
+            
+    <!-- Client - Client Details Tab -->
+    <definition name="finance.client.create.clientTab" extends="finance.client.create.base">
+    	<put-attribute name="menu">
+        	<definition extends="finance.menus">
+        		<put-attribute name="activeMenu" value="sideMenu.finance.clientLanding" />
+        	</definition>
+        </put-attribute>
+        <put-attribute name="title" value="Client Details" />
+        <put-attribute name="body">
+        	<definition extends="finance.client.create.tabs">
+        		<put-attribute name="activeTab" value="finance.client.financialMenuTab.clientDetails" />
+        		<put-attribute name="tabContent" value="/WEB-INF/jsp/financial/createClient/client-tab.jsp" />
+        	</definition>
+        </put-attribute>
+    </definition>
+    
+    <!-- Client - Financial Details Tab -->
+    <definition name="finance.client.create.financialTab" extends="finance.client.create.base">
+        <put-attribute name="menu">
+        	<definition extends="finance.menus">
+        		<put-attribute name="activeMenu" value="sideMenu.finance.clientLanding" />
+        	</definition>
+        </put-attribute>
+        <put-attribute name="title" value="Financial Details" />
+        <put-attribute name="body">
+        	<definition extends="finance.client.create.tabs">
+        		<put-attribute name="activeTab" value="finance.client.financialMenuTab.financialDetails" />
+        		<put-attribute name="tabContent" value="/WEB-INF/jsp/financial/createClient/financial-tab.jsp" />
+        	</definition>
+        </put-attribute>
+    </definition>
+    
+    <!-- Client - Other Tab -->
+    <definition name="finance.client.create.otherTab" extends="finance.client.create.base">
+        <put-attribute name="menu">
+        	<definition extends="finance.menus">
+        		<put-attribute name="activeMenu" value="sideMenu.finance.clientLanding" />
+        	</definition>
+        </put-attribute>
+        <put-attribute name="title" value="Other" />
+        <put-attribute name="body">
+        	<definition extends="finance.client.create.tabs">
+        		<put-attribute name="activeTab" value="finance.client.financialMenuTab.otherDetails" />
+        		<put-attribute name="tabContent" value="/WEB-INF/jsp/financial/createClient/other-tab.jsp" />
+        	</definition>
+        </put-attribute>
+    </definition>
+    <!-- End Create Client --> 
+    
+    <!-- The read only detailed view of the Supplier - financial -->
+    <definition name="finance.supplier.financeDetails" extends="finance.base">
+        <put-attribute name="body" value="/WEB-INF/jsp/financial/supplierFinanceDetails.jsp" />
+        <put-attribute name="menu">
+        	<definition extends="finance.menus">
+        		<put-attribute name="activeMenu" value="sideMenu.finance.supplierLanding" />
+        	</definition>
+        </put-attribute>
+        <!-- <put-attribute name="scratchpad">
+        	<definition extends="scratchpad.template">
+        		<put-list-attribute name="sps">
+		    		<add-attribute value="scratchpad.finance"/>
+		    		<add-attribute value="scratchpad.custodian"/>
+		    		<add-attribute value="scratchpad.help"/>
+		    		<add-attribute value="scratchpad.faultcodes"/>
+		    		<add-attribute value="scratchpad.docsimages"/>
+		    		<add-attribute value="scratchpad.parts"/>
+		    		<add-attribute value="scratchpad.groups"/>
+		    	</put-list-attribute>
+        	</definition>
+        </put-attribute>
+         -->
+    </definition>
+    
+    <!-- The read only detailed view of the Client - financial -->
+    <definition name="finance.client.financeDetails" extends="finance.base">
+        <put-attribute name="body" value="/WEB-INF/jsp/financial/clientFinanceDetails.jsp" />
+        <put-attribute name="menu">
+        	<definition extends="finance.menus">
+        		<put-attribute name="activeMenu" value="sideMenu.finance.clientLanding" />
+        	</definition>
+        </put-attribute>
+        <!-- <put-attribute name="scratchpad">
+        	<definition extends="scratchpad.template">
+        		<put-list-attribute name="sps">
+		    		<add-attribute value="scratchpad.finance"/>
+		    		<add-attribute value="scratchpad.custodian"/>
+		    		<add-attribute value="scratchpad.help"/>
+		    		<add-attribute value="scratchpad.faultcodes"/>
+		    		<add-attribute value="scratchpad.docsimages"/>
+		    		<add-attribute value="scratchpad.parts"/>
+		    		<add-attribute value="scratchpad.groups"/>
+		    	</put-list-attribute>
+        	</definition>
+        </put-attribute>
+         -->
+    </definition>
+ 
+    <!-- The Supplier full search -->
+    <definition name="supplier.search" extends="finance.base">
+    	<put-attribute name="screenTitle" value="sideMenu.finance.searchFinancial" cascade="true"/>
+    	<put-attribute name="menu">
+        	<definition extends="finance.menus">
+        		<put-attribute name="activeMenu" value="sideMenu.finance.supplierLanding" />
+        	</definition>
+        </put-attribute>
+    	<put-attribute name="body" >
+        	<definition extends="das.search">
+        		<put-attribute name="searchContent" value="/WEB-INF/jsp/financial/supplierSearch.jsp" />
+        	</definition>
+        </put-attribute>
+    </definition> 
+ 
+ <!-- The Client full search -->
+    <definition name="client.search" extends="finance.base">
+    	<put-attribute name="screenTitle" value="sideMenu.finance.searchFinancial" cascade="true"/>
+    	<put-attribute name="menu">
+        	<definition extends="finance.menus">
+        		<put-attribute name="activeMenu" value="sideMenu.finance.clientLanding" />
+        	</definition>
+        </put-attribute>
+    	<put-attribute name="body" >
+        	<definition extends="das.search">
+        		<put-attribute name="searchContent" value="/WEB-INF/jsp/financial/clientSearch.jsp" />
+        	</definition>
+        </put-attribute>
+    </definition> 
+ 
+</tiles-definitions>

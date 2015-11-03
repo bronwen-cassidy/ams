@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<!--This tile is for tiles that can be in multiple DAS modules. For example, Lists -->
+<tiles-definitions>
+	<definition name="view.lists.modal" template="/WEB-INF/jsp/dasacumen/viewList.jsp" />
+	<definition name="view.groups.modal" template="/WEB-INF/jsp/assetRegister/viewGroup.jsp" />
+	<definition name="view.createList.modal" template="/WEB-INF/jsp/dasacumen/createList.jsp" />
+	<definition name="view.createGroup.modal" template="/WEB-INF/jsp/assetRegister/createGroup.jsp" />
+	<definition name="view.sendEmailAsset.modal" template="/WEB-INF/jsp/dasacumen/sendEmailAsset.jsp" />
+	<definition name="view.sendEmail.modal" template="/WEB-INF/jsp/dasacumen/sendEmail.jsp" />
+</tiles-definitions>

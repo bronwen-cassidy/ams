@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+
+	 Used for debugging purposes only when the database has been "dirtied" by test data and dbunit cannot clear
+	 xml datasets from the database / cannot cleanly insert into the database. This usually comes from setting the
+	 defaultrollback to false thus allowing test data to be persisted. This file will allow dbunit to cleanly
+	 insert because it knows about tables which have a "dirty state" and just cleanly insert nothing into them in
+	 the database setup of the test (a @databaseSetup annotation should reference this xml file). 
+	 All tables that are related to the test should be used here. 
+	 
+	 FYI the dirty test data which is left inside the database will always be there and cannot be removed by dbunit
+	 because it just rolls back to that state.
+	 -->
+<dataset>
+  	<acumen.parties/>
+	<acumen.companies/>
+	<acumen.addresses/>
+	<acumen.party_addresses/>
+</dataset>

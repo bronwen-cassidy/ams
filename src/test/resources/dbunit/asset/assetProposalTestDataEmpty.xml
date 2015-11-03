@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+  <!-- 
+		Asset Proposal IDs start at 140
+		Asset Proposal Extras IDs start at 145
+		
+		This script depends on the follow and must be included within the test:
+		asset/assetsTestData.xml
+		parties/emailsTelephoneEtcTestData.xml
+	 -->
+	
+  	<acumen.asset_proposal/>
+  	<acumen.asset_proposal_extras/>
+
+</dataset>

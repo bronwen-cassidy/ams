@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<acumen.addresses id="1" created_by="audit" last_updated_by="audit" address_line_1="1 Willow Lane" address_line_2="Manchester" address_line_3="Greater Manchester" zip_post_code="M42 7LY" country="England" type_of_place="wharehouse" city="Manchester" tenant_id="1" version_number="0"/>
+	<acumen.addresses id="2" created_by="audit" last_updated_by="audit" address_line_1="1 Willow Lane" address_line_2="Manchester" address_line_3="Greater Manchester" zip_post_code="M42 7LY" country="England" type_of_place="wharehouse" city="Manchester" tenant_id="1" version_number="0"/>
+	<acumen.party_addresses id="1" parties_id="2"  addresses_id="2" address_type="Updated Address Type" tenant_id="1" created_by="audit" last_updated_by="audit" version_number="1"/>
+	</dataset>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<!-- All new dataset files should list the range of ids it will use like below. Also please list them here in this file
+		 as well this is so we know what IDs are assigned to which table and we do not overlap. Dataset files should only
+		 include one table to insert to. All other rows needed should be in their own dbunit files and linked in the test.
+	     * BASE FILE - This will be updated with the latest changes to tests. Please use this as a base for tests in the future. 
+	 -->
+	     
+	<!-- AddressDataset uses IDS between 50-150 -->
+	<acumen.addresses id="50" address_line_1="Test Address Line 1" address_line_2="Test Address Line 2" address_line_3="Test Address Line 3" zip_post_code="M50 2NT" city="Manchester" country="Test Country" type_of_place="Large" tenant_id="1" created_by="audit" created_date="2014-10-15 12:22:20.29"  last_updated_by="audit" last_updated_date="2014-10-15 12:22:20.29" version_number="0" />
+</dataset>

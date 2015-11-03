@@ -1,0 +1,47 @@
+*{
+	margin:0px !important;
+}
+
+img{
+	display:block;
+}
+
+label{
+	font-weight:normal;
+}
+
+label,strong{
+	font-size:12px;
+}
+
+.print-box{
+	padding: 7px 20px;
+	width: 900px;
+	display: inherit;
+}
+
+.print-inner-container{
+	margin: auto !important;
+	display: table;
+}
+
+.print-heading{
+	font-weight:bold;
+}
+
+.print-details{
+	display:inline-block;
+	width:33%;
+}
+
+.print-img{
+	float: right;
+	margin-top: 20px !important;
+	margin-right: 22%!important;
+}
+
+.container-height{
+	height:90vh;
+	overflow-y:scroll;
+	
+}

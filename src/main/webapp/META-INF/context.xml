@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context path="/DAS_Acumen" docBase="DAS_Acumen" reloadable="true">
+    <Resource name="jdbc/das_acumen"
+              auth="Container"
+              type="javax.sql.DataSource"
+              username="das"
+              password="das"
+              driverClassName="org.postgresql.Driver"
+              url="jdbc:postgresql://localhost:5432/DAS_Acumen"
+              factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+              testOnBorrow="true"
+              testOnReturn="true"
+              validationQuery="SELECT 1"
+              validationInterval="30000"
+              maxActive="1000"
+              minIdle="0"
+              maxWait="60000"
+              initialSize="1"
+              suspectTimeout="100"
+              removeAbandoned="true"
+              removeAbandonedTimeout="110"
+              logAbandoned="true"
+              jmxEnabled="true"
+              jdbcInterceptors="org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;
+                     org.apache.tomcat.jdbc.pool.interceptor.ResetAbandonedTimer;
+                     org.apache.tomcat.jdbc.pool.interceptor.SlowQueryReportJmx(threshold=10000)"/>
+
+</Context>

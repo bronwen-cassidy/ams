@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<!-- Asset with insurance type which has a policy -->
+	<acumen.assets id="1" company_id="1" asset_status_id="1" supplier_id="1" custodian_id="2" asset_number_part_1_id="1" asset_number_part_2_id="1" asset_number_part_3_id="2" asset_number_part_4="1" site_id="1" location_id="1" division_id="1" department_id="2" depreciation_code="1" country_id="2" category_id="2" uid="das_bf_2277775602968850114" name="Spanner" description="test" serial_number="12345" supplier_pn="item1" is_a_facility="false" is_equipment="false" is_part="false" critical_asset="false" risk_assessment="false" bcp="false" tenant_id="1" version_number="1"/>
+	<acumen.insurance_policies id="45" insurance_supplier_id="1" commencement_date="2000-11-10" expiry_date="2050-11-10" policy_number="XYZALPHA123445533" cost="2000.4600000000000363797880709171295166015625" tenant_id="1" created_by="JamesWesker@jla.co.uk" created_date="2001-01-04 00:00:00.000" last_updated_by="chrisredfield@jla.co.uk" last_updated_date="2021-01-04 00:00:00.000" version_number="0"/>
+	<acumen.asset_insurance_types id="66" insurance_type_id="1" assets_id="1" mandatory="true" tenant_id="1" created_by="JamesWesker@jla.co.uk" created_date="2001-01-04 00:00:00.000" last_updated_by="chrisredfield@jla.co.uk" last_updated_date="2021-01-04 00:00:00.000" version_number="0"/>
+	<acumen.insurance_type_policy_links id="15" insurance_policy_id="45" asset_insurance_type_id="66" tenant_id="1" version_number="0"/>
+	
+	<!-- Asset with insurance type which does NOT have a policy -->
+	<acumen.assets id="2" company_id="1" asset_status_id="1" supplier_id="1" custodian_id="2" asset_number_part_1_id="1" asset_number_part_2_id="1" asset_number_part_3_id="2" asset_number_part_4="1" site="1" location_id="1" division_id="1" department_id="2" depreciation_code="1" country_id="2" category_id="2" uid="das_bf_2277775602968850115" name="Spade" description="test" serial_number="12345" supplier_pn="item1" is_a_facility="false" is_equipment="false" is_part="false" critical_asset="false" risk_assessment="false" bcp="false" tenant_id="1" version_number="1"/>
+	<acumen.asset_insurance_types id="23" insurance_type_id="2" assets_id="2" mandatory="true" tenant_id="1" created_by="JamesWesker@jla.co.uk" created_date="2001-01-04 00:00:00.000" last_updated_by="chrisredfield@jla.co.uk" last_updated_date="2021-01-04 00:00:00.000" version_number="0"/>
+	<acumen.insurance_type_policy_links id="16" insurance_policy_id="333" asset_insurance_type_id="23" tenant_id="1"  version_number="0"/>
+	<!-- Unlinked policy  -->
+	<acumen.insurance_policies id="333" insurance_supplier_id="2" commencement_date="2000-11-10" expiry_date="2050-11-10" policy_number="XYZALPHA123445533" cost="2000.4600000000000363797880709171295166015625" tenant_id="1" created_by="JamesWesker@jla.co.uk" created_date="2001-01-04 00:00:00.000" last_updated_by="chrisredfield@jla.co.uk" last_updated_date="2021-01-04 00:00:00.000" version_number="0"/>
+  
+</dataset>

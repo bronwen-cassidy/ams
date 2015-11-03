@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<!-- Top level scratchpad template which holds a list of individual scratchpads -->
+    <definition name="scratchpad.template" template="/WEB-INF/jsp/scratchPad/scratchpadOuter.jsp">
+    </definition>
+ 
+ 	<!-- An empty list of Scratch pads for screens that do not have any. -->
+ 	<definition name="scratchpad.empty" extends="scratchpad.template">
+      	<put-list-attribute name="sps">
+    	</put-list-attribute>
+	</definition>
+ 	
+ 	<!-- Assert search scratchpad is a simple search.
+ 		 The URL attribute should map to a search controller for the particular search. In this 
+ 		 case the Asset Search Controller.
+ 		 This is just a simple search as there is only one search parameter that the user 
+ 		 can enter. If more are required use a different JSP. 
+ 	 -->
+    <definition name="scratchpad.assetSearch" template="/WEB-INF/jsp/scratchPad/scratchpadSearch.jsp">
+    	<!-- Name of the scratch pad. As it appears on screen -->
+    	<put-attribute name="name" value="scratchpad.asset.assetSearch"/>
+    	<!-- URL to perform the search. Needs to return the results JSP -->
+    	<put-attribute name="search_url" value="/das/assetSearch/scratchpadSearch"/>
+    	<!-- Unique name to identify the scratchpad -->
+    	<put-attribute name="id" value="Asset_Search"/>
+    </definition>
+    
+    <definition name="scratchpad.assetSearch.results" template="/WEB-INF/jsp/scratchPad/assetSearchResults.jsp">
+    </definition>
+    
+    <!-- TODO Is this needed -->
+    <definition name="scratchpad.name" template="/WEB-INF/jsp/scratchPad/simpleScratchpad.jsp">
+    	<put-attribute name="name" value="scratchpad.asset.name"/>
+    	<put-attribute name="scratchpad_url" value="/das/splash/todo?param=scratchpad_name"/>
+    	<put-attribute name="id" value="Name"/>
+    </definition>
+ 
+ 	<!-- Finance SP holds inner scratchpads -->
+    <definition name="scratchpad.finance" template="/WEB-INF/jsp/scratchPad/embeddedScratchpad.jsp">
+    	<put-attribute name="name" value="scratchpad.asset.finance"/>
+    	<put-attribute name="id" value="Finance"/>
+    	<put-list-attribute name="innerScratchpads">
+    		<add-attribute value="scratchpad.finance.supplier"/>
+    		<add-attribute value="scratchpad.finance.client"/>
+    	    <add-attribute value="scratchpad.finance.vatCodes"/>
+    		<add-attribute>
+    			<definition name="scratchpad.finance.depreciationCodes" template="/WEB-INF/jsp/scratchPad/simpleScratchpad.jsp">
+    				<put-attribute name="name" value="scratchpad.finance.depreciationCodes"/>
+    				<put-attribute name="scratchpad_url" value="/das/splash/todo?param=scratchpad_dep_codes"/>
+			    	<put-attribute name="id" value="depreciationCodes"/>
+    			</definition>
+    		</add-attribute>
+    		<add-attribute>
+    			<definition name="scratchpad.finance.budget" template="/WEB-INF/jsp/scratchPad/simpleScratchpad.jsp">
+    				<put-attribute name="name" value="scratchpad.finance.budget"/>
+    				<put-attribute name="scratchpad_url" value="/das/splash/todo?param=scratchpad_budget"/>
+			    	<put-attribute name="id" value="budget"/>
+    			</definition>
+    		</add-attribute>
+    	</put-list-attribute>
+    </definition>
+    <definition name="scratchpad.finance.supplier" template="/WEB-INF/jsp/scratchPad/scratchpadSearch.jsp">
+		<put-attribute name="name" value="scratchpad.finance.supplier"/>
+		<put-attribute name="search_url" value="/das/financial/supplier/search/sp?typeName=SUPPLIER"/>
+    	<put-attribute name="id" value="supplier"/>
+	</definition>
+	<definition name="scratchpad.finance.client" template="/WEB-INF/jsp/scratchPad/scratchpadSearch.jsp">
+		<put-attribute name="name" value="scratchpad.finance.client"/>
+		<put-attribute name="search_url" value="/das/financial/client/search/sp?typeName=CLIENT"/>
+	   	<put-attribute name="id" value="client"/>
+	</definition>
+	<definition name="scratchpad.finance.vatCodes" template="/WEB-INF/jsp/scratchPad/simpleScratchpad.jsp">
+ 		<put-attribute name="name" value="scratchpad.finance.vatCodes"/>
+ 		<put-attribute name="scratchpad_url" value="/das/splash/todo?param=scratchpad_vat"/>
+    	<put-attribute name="id" value="vatCodes"/>
+ 	</definition>
+	<!-- Finance SP Preview which holds inner preview scratchpads for asset landing page -->
+	<definition name="scratchpad.finance.preview" template="/WEB-INF/jsp/scratchPad/embeddedScratchpad.jsp">
+    	<put-attribute name="name" value="scratchpad.asset.finance"/>
+    	<put-attribute name="id" value="Finance"/>
+    	<put-list-attribute name="innerScratchpads">
+    		<add-attribute>
+    			<definition name="scratchpad.finance.supplier.preview" template="/WEB-INF/jsp/scratchPad/previewScratchpad.jsp">
+    				<put-attribute name="name" value="scratchpad.finance.supplier"/>
+    				<put-attribute name="scratchpad_url" value="/das/financial/supplier/supplierPreview"/>
+			    	<put-attribute name="id" value="supplier"/>
+			    	<put-attribute name="preview_search" value="supplierId assetId"/>
+    			</definition>
+    		</add-attribute>
+    		<add-attribute>
+    			<definition name="scratchpad.finance.client.preview" template="/WEB-INF/jsp/scratchPad/previewScratchpad.jsp">
+    				<put-attribute name="name" value="scratchpad.finance.client"/>
+    				<put-attribute name="scratchpad_url" value="/das/financial/client/clientPreview"/>
+			    	<put-attribute name="id" value="client"/>
+    				<put-attribute name="preview_search" value="clientId assetId"/>
+    			</definition>
+    		</add-attribute>
+    		<add-attribute>
+    			<definition name="scratchpad.finance.vatCodes.preview" template="/WEB-INF/jsp/scratchPad/previewScratchpad.jsp">
+    				<put-attribute name="name" value="scratchpad.finance.vatCodes"/>
+    				<put-attribute name="scratchpad_url" value="/das/splash/todo?param=scratchpad_vat"/>
+			    	<put-attribute name="id" value="vatCodes"/>
+					<put-attribute name="preview_search" value="assetId"/>
+    			</definition>
+    		</add-attribute>
+    		<add-attribute>
+    			<definition name="scratchpad.finance.depreciationCodes.preview" template="/WEB-INF/jsp/scratchPad/previewScratchpad.jsp">
+    				<put-attribute name="name" value="scratchpad.finance.depreciationCodes"/>
+    				<put-attribute name="scratchpad_url" value="/das/splash/todo?param=scratchpad_dep_codes"/>
+			    	<put-attribute name="id" value="depreciationCodes"/>
+					<put-attribute name="preview_search" value="assetId"/>
+    			</definition>
+    		</add-attribute>
+    		<add-attribute>
+    			<definition name="scratchpad.finance.budget.preview" template="/WEB-INF/jsp/scratchPad/previewScratchpad.jsp">
+    				<put-attribute name="name" value="scratchpad.finance.budget"/>
+    				<put-attribute name="scratchpad_url" value="/das/splash/todo?param=scratchpad_budget"/>
+			    	<put-attribute name="id" value="budget"/>
+					<put-attribute name="preview_search" value="assetId"/>
+    			</definition>
+    		</add-attribute>
+    	</put-list-attribute>
+    </definition>
+    <definition name="scratchpad.supplier.preview.results" template="/WEB-INF/jsp/scratchPad/scratchPadPreview/supplierPreviewResults.jsp">
+    </definition>
+	<!-- End of Finance SP -->
+
+	<!-- Finance SP holds inner scratchpads. Set 1 is a different inner configuration -->
+    <definition name="scratchpad.finance.set1" template="/WEB-INF/jsp/scratchPad/embeddedScratchpad.jsp">
+    	<put-attribute name="name" value="scratchpad.asset.finance"/>
+    	<put-attribute name="id" value="Finance"/>
+    	<put-list-attribute name="innerScratchpads">
+    		<add-attribute>
+    			<definition name="scratchpad.finance.taxCodes" template="/WEB-INF/jsp/scratchPad/simpleScratchpad.jsp">
+    				<put-attribute name="name" value="scratchpad.finance.taxCodes"/>
+    				<put-attribute name="scratchpad_url" value="/das/splash/todo?param=scratchpad_taxcodes"/>
+			    	<put-attribute name="id" value="vatCodes"/>
+    			</definition>
+    		</add-attribute>
+    	    <add-attribute value="scratchpad.finance.vatCodes"/>
+    		<add-attribute>
+    			<definition name="scratchpad.finance.termsagreed" template="/WEB-INF/jsp/scratchPad/simpleScratchpad.jsp">
+    				<put-attribute name="name" value="scratchpad.finance.termsagreed"/>
+    				<put-attribute name="scratchpad_url" value="/das/splash/todo?param=scratchpad_terms_agreed"/>
+			    	<put-attribute name="id" value="depreciationCodes"/>
+    			</definition>
+    		</add-attribute>
+    		<add-attribute>
+    			<definition name="scratchpad.finance.spendLimit" template="/WEB-INF/jsp/scratchPad/simpleScratchpad.jsp">
+    				<put-attribute name="name" value="scratchpad.finance.spendLimit"/>
+    				<put-attribute name="scratchpad_url" value="/das/splash/todo?param=scratchpad_spendlimit"/>
+			    	<put-attribute name="id" value="spendLimit"/>
+    			</definition>
+    		</add-attribute>
+    	</put-list-attribute>
+    </definition>
+    <definition name="scratchpad.custodian" template="/WEB-INF/jsp/scratchPad/scratchpadSearch.jsp">
+    	<put-attribute name="name" value="scratchpad.asset.custodian"/>
+    	<put-attribute name="search_url" value="/das/custodian/search/sp"/>
+    	<put-attribute name="id" value="Custodian"/>
+    </definition>
+    <!-- TODO currently re-using the asset results. Could be a generic JSP. Might need specific expandable
+    details within it -->
+    <definition name="scratchpad.custodian.results" template="/WEB-INF/jsp/scratchPad/assetSearchResults.jsp">
+    </definition>
+    <definition name="scratchpad.custodian.preview.results" template="/WEB-INF/jsp/scratchPad/scratchPadPreview/custodianPreviewResults.jsp">
+    </definition>
+    <definition name="scratchpad.custodian.preview" template="/WEB-INF/jsp/scratchPad/previewScratchpad.jsp">
+    	<put-attribute name="name" value="scratchpad.asset.custodian"/>
+    	<put-attribute name="scratchpad_url" value="/das/custodian/custodianPreview"/>
+    	<put-attribute name="id" value="Custodian"/>
+    	<put-attribute name="preview_search" value="custodianId assetId supplierId"/>
+    </definition>
+
+    <definition name="scratchpad.help" template="/WEB-INF/jsp/scratchPad/simpleScratchpad.jsp">
+    	<put-attribute name="name" value="scratchpad.asset.help"/>
+    	<put-attribute name="scratchpad_url" value="/das/splash/todo?param=scratchpad_help"/>
+    	<put-attribute name="id" value="Help"/>
+    </definition>
+    <definition name="scratchpad.help.preview" template="/WEB-INF/jsp/scratchPad/previewScratchpad.jsp">
+    	<put-attribute name="name" value="scratchpad.asset.help"/>
+    	<put-attribute name="scratchpad_url" value="/das/splash/todo?param=scratchpad_help"/>
+    	<put-attribute name="id" value="Help"/>
+		<put-attribute name="preview_search" value="assetId"/>
+    </definition>
+
+    <definition name="scratchpad.faultcodes" template="/WEB-INF/jsp/scratchPad/simpleScratchpad.jsp">
+    	<put-attribute name="name" value="scratchpad.asset.faultCodes"/>
+    	<put-attribute name="scratchpad_url" value="/das/splash/todo?param=scratchpad_fault_codes"/>
+    	<put-attribute name="id" value="FaultCodes"/>
+    </definition>
+    <definition name="scratchpad.faultcodes.preview" template="/WEB-INF/jsp/scratchPad/previewScratchpad.jsp">
+    	<put-attribute name="name" value="scratchpad.asset.faultCodes"/>
+    	<put-attribute name="scratchpad_url" value="/das/splash/todo?param=scratchpad_faultcodes"/>
+    	<put-attribute name="id" value="FoultCodes"/>
+		<put-attribute name="preview_search" value="assetId"/>
+    </definition>
+
+    <definition name="scratchpad.coreskills" template="/WEB-INF/jsp/scratchPad/simpleScratchpad.jsp">
+    	<put-attribute name="name" value="scratchpad.asset.coreskills"/>
+    	<put-attribute name="scratchpad_url" value="/das/splash/todo?param=scratchpad_coreskills"/>
+    	<put-attribute name="id" value="coreskills"/>
+    </definition>
+
+    <definition name="scratchpad.tags" template="/WEB-INF/jsp/scratchPad/simpleScratchpad.jsp">
+    	<put-attribute name="name" value="scratchpad.asset.tags"/>
+    	<put-attribute name="scratchpad_url" value="/das/splash/todo?param=scratchpad_tags"/>
+    	<put-attribute name="id" value="tags"/>
+    </definition>
+
+    <definition name="scratchpad.docsimages" template="/WEB-INF/jsp/scratchPad/simpleScratchpad.jsp">
+    	<put-attribute name="name" value="scratchpad.asset.documentsAndImages"/>
+    	<put-attribute name="scratchpad_url" value="/das/splash/todo?param=scratchpad_docs"/>
+    	<put-attribute name="id" value="Documents-Images"/>
+    </definition>
+    <definition name="scratchpad.docsimages.preview" template="/WEB-INF/jsp/scratchPad/previewScratchpad.jsp">
+    	<put-attribute name="name" value="scratchpad.asset.documentsAndImages"/>
+    	<put-attribute name="scratchpad_url" value="/das/splash/todo?param=scratchpad_docsimages"/>
+    	<put-attribute name="id" value="docsimages"/>
+		<put-attribute name="preview_search" value="assetId"/>
+    </definition>
+
+    <definition name="scratchpad.parts" template="/WEB-INF/jsp/scratchPad/simpleScratchpad.jsp">
+    	<put-attribute name="name" value="scratchpad.asset.parts"/>
+    	<put-attribute name="scratchpad_url" value="/das/splash/todo?param=scratchpad_parts"/>
+    	<put-attribute name="id" value="Parts"/>
+    </definition>
+    <definition name="scratchpad.parts.preview" template="/WEB-INF/jsp/scratchPad/previewScratchpad.jsp">
+    	<put-attribute name="name" value="scratchpad.asset.parts"/>
+    	<put-attribute name="scratchpad_url" value="/das/splash/todo?param=scratchpad_parts"/>
+    	<put-attribute name="id" value="Parts"/>
+		<put-attribute name="preview_search" value="assetId"/>
+    </definition>
+    
+<!-- GROUPS -->	
+    <definition name="scratchpad.groups" template="/WEB-INF/jsp/scratchPad/scratchpadSearch.jsp">
+    	<put-attribute name="name" value="scratchpad.asset.groups"/>
+    	<put-attribute name="search_url" value="/das/group/search/sp?typeName=GROUPS"/>
+    	<put-attribute name="id" value="Groups"/>
+    </definition>
+    <definition name="scratchpad.groups.results" template="/WEB-INF/jsp/scratchPad/groupsSearchResults.jsp">
+    </definition>
+    <definition name="scratchpad.groups.preview.results" template="/WEB-INF/jsp/scratchPad/scratchPadPreview/groupPreviewResults.jsp">
+    </definition>
+    <definition name="scratchpad.groups.preview" template="/WEB-INF/jsp/scratchPad/previewScratchpad.jsp">
+    	<put-attribute name="name" value="scratchpad.asset.groups"/>
+    	<put-attribute name="scratchpad_url" value="/das/group/groupPreview"/>
+    	<put-attribute name="id" value="Groups"/>
+		<put-attribute name="preview_search" value="bucketId assetId"/>
+    </definition>
+    
+    
+     	<!-- @TODO XXX : COMPLETE BELOW :Sales holds inner scratchpads -->
+   <definition name="scratchpad.sales" template="/WEB-INF/jsp/scratchPad/embeddedScratchpad.jsp">
+    	<put-attribute name="name" value="scratchpad.sales.schedule"/>
+    	<put-attribute name="id" value="Sales"/>
+    	<put-list-attribute name="innerScratchpads">
+    		<add-attribute value="scratchpad.sales.results"/>
+    	</put-list-attribute>
+    </definition>
+    
+    <!-- TODO currently re-using the asset results. Could be a generic JSP. Might need specific expandable
+    details within it. might not be needed might have to removed-->
+    <definition name="scratchpad.sales.results" template="/WEB-INF/jsp/scratchPad/assetSearchResults.jsp">
+    </definition>
+    
+    <definition name="scratchpad.sales.preview" template="/WEB-INF/jsp/scratchPad/previewScratchpad.jsp">
+    	<put-attribute name="name" value="scratchpad.sales.schedule"/>
+		<put-attribute name="scratchpad_url" value="/das/assetSchedule/assetSchedulePreview"/>
+    	<put-attribute name="id" value="schedule"/>
+    	<put-attribute name="preview_search" value="assetId"/>
+    </definition>
+    
+    <definition name="scratchpad.sales.preview.results" template="/WEB-INF/jsp/scratchPad/scratchpadSchedule.jsp">
+    </definition>
+    
+    <definition name="scratchpad.sales.client" template="/WEB-INF/jsp/scratchPad/scratchpadSearch.jsp">
+		<put-attribute name="name" value="scratchpad.sales.client"/>
+		<put-attribute name="search_url" value="/das/financial/client/search/sp?typeName=CLIENT"/>
+	   	<put-attribute name="id" value="client"/>
+	</definition>
+    
+    <definition name="scratchpad.sales.client.preview" template="/WEB-INF/jsp/scratchPad/previewScratchpad.jsp">
+    	<put-attribute name="name" value="scratchpad.sales.client"/>
+    	<put-attribute name="scratchpad_url" value="/das/financial/client/search/clientPreview"/>
+		<put-attribute name="id" value="client"/>
+		<put-attribute name="preview_search" value="clientId assetId"/>
+		<!-- <put-attribute name="search_url" value="/das/financial/client/search/sp?typeName=CLIENT"/> clientPreview -->
+    </definition>
+
+</tiles-definitions>

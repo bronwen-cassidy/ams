@@ -1,0 +1,6 @@
+\i main_db/CreateSchema.sql
+\i main_db/CreateTables.sql
+\i permanent_data/ud_test_data.sql
+\i test_data/reset_sequences.sql
+\i main_db/AlterUserDasNOSU.sql
+\q

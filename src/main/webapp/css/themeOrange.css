@@ -1,0 +1,156 @@
+/*----------Top Navbar colour----------*/
+.navbar-inverse {
+background: #252322;
+}
+
+.navbar-inverse > .container >.navbar-header > a
+{
+	color: #F8A819;
+}
+
+/*----------Sidebar colour----------*/
+.main-navigation{
+	background: #3C4148 !important;
+}
+
+/*----------Sidebar active link active colour----------*/
+.main-navigation ul.main-navigation-menu>li.active>a{
+	background: #232120  !important;
+	color:#F8A819;
+}
+
+/*----------Sidebar active link active hover colour----------*/
+.main-navigation ul.main-navigation-menu>li.active:hover > a{
+	background: #10100F !important;
+	color:#F8A819 !important;
+}
+
+/*----------Sidebar link colour----------*/
+.main-navigation ul.main-navigation-menu>li > a{
+	background: #3C4148 !important;
+	
+}
+
+/*----------Sidebar link hover colour----------*/
+.main-navigation ul.main-navigation-menu>li > a:hover{
+	background: #4C5460 !important;
+	color:white !important;
+}
+
+/*----------Scratchpad header background colour----------*/
+.scratchpad{
+	background: #252322 !important;
+}
+
+.scratchpad > p{
+	color:#F8A819;
+}
+
+/*----------Scratchpad parent accordion colour----------*/
+.scratchpad .panel-heading.scratchpad-header.collapsed, 
+.scratchpad .panel-heading.scratchpad-header-preview.collapsed{
+	background: #3C4148 !important;	
+}
+
+/*----------Scratchpad parent accordion hover colour----------*/
+.scratchpad .panel-heading.scratchpad-header.collapsed:hover, 
+.scratchpad .panel-heading.scratchpad-header-preview.collapsed:hover{
+	background: #4C5460 !important;	
+}
+
+/*----------Scratchpad parent accordion active colour----------*/
+.scratchpad .panel-heading.scratchpad-header,
+.scratchpad .panel-heading.scratchpad-header-preview{
+	background: #252322 !important;
+	color:#F8A819 !important;
+	
+}
+
+/*----------Scratchpad parent accordion active hover colour----------*/
+.scratchpad .panel-heading.scratchpad-header:hover,
+.scratchpad .panel-heading.scratchpad-header-preview:hover{
+	background: #10100F  !important;
+}
+
+/*----------Scratchpad child accordion colour----------*/
+#Finance_accordian > div > div.panel-heading.scratchpad-header-preview.collapsed{
+	background: #5A6678 !important;
+}
+
+/*----------Scratchpad child accordion hover colour----------*/
+#Finance_accordian > div > div.panel-heading.scratchpad-header-preview.collapsed:hover{
+	background: #7B8AA1 !important;
+}
+
+/*----------Scratchpad child accordion active colour----------*/
+#Finance_accordian > div > div.panel-heading.scratchpad-header-preview{
+	background: #252322 !important;
+}
+
+/*----------Scratchpad child accordion active hover colour----------*/
+#Finance_accordian > div > div.panel-heading.scratchpad-header-preview:hover{
+	background: #252322 !important;
+}
+
+/*----------Navbar link a colour----------*/
+.navbar-inverse li.navbar-right-main-link > a {
+	color: white !important;
+}
+
+/*----------Navbar link hover colour----------*/
+.navbar-inverse li.navbar-right-main-link:hover>a {
+	background-color: #10100F !important;
+	color:#F8A819 !important;
+}
+
+/*----------Navbar notifications hover colour----------*/
+.navbar-inverse li.dropdown>a:hover {
+	background-color: #10100F !important;
+}
+
+/*----------Navbar notifications active colour----------*/
+.navbar-inverse .open>a {
+	background-color: #10100F !important;
+}
+
+/*----------Main tabs background colour----------*/
+.main-content>.row>.nav-tabs li > a{
+	background: #3C4148 !important;
+}
+
+/*----------Main tabs background hover colour----------*/
+.main-content>.row>.nav-tabs li > a:hover {
+	background: #4C5460  !important;
+}
+
+/*----------Main tabs background active colour----------*/
+.main-content>.row>.nav-tabs li.active>a{
+	background:white !important;
+}
+
+/*----------Table row active colour----------*/
+.selected-row{
+	background-color: #E7E7E7 !important;
+	color:black !important;
+	text-decoration:none;
+}
+
+.selected-row > td > a{
+	color:black;
+}
+
+/*----------Table row hover colour----------*/
+.table-hover>tbody>tr:hover>td,
+.table-hover>tbody>tr:hover>th.checkbox-holder-size {
+	background-color: #E1E1E1;
+	color: black;
+}
+
+.table-hover>tbody>tr:hover> td > a{
+	color:black;
+}
+
+.badge{
+	background-color:#de6262 !important;
+	color: white !important;
+}

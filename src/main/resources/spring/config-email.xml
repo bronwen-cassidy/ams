@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/jee 
+		http://www.springframework.org/schema/jee/spring-jee-3.2.xsd
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com"/>
+		<!-- Alternate email credentials
+		<property name="username" value="brightfuturesoftware2@gmail.com"/>
+		<property name="password" value="BFuture2"/>  -->
+		
+		<property name="username" value="brightfuturesoftware2@gmail.com"/>
+		<property name="password" value="BFuture1"/>
+		<property name="javaMailProperties">
+			<props>
+			    <!-- Use SMTP transport protocol -->
+			    <prop key="mail.transport.protocol">smtp</prop>
+			    <!-- Use SMTP-AUTH to authenticate to SMTP server -->
+			    <prop key="mail.smtp.auth">true</prop>
+			    <!-- Use TLS to encrypt communication with SMTP server -->
+			    <prop key="mail.smtp.starttls.enable">true</prop>
+			    <prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop>
+			    <prop key="mail.debug">true</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="emailService" class="com.xioq.dasacumen.service.EmailService">
+		<property name="mailSender" ref="mailSender"/>
+	</bean>
+</beans>

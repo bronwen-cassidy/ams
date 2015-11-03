@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+  <!--  This is a very specific test data script for a particular bug.
+  		See: com.xioq.dasacumen.dao.AssetProposalHibernateTest.retrieveLeaseOutAssetTest_duplicateExtrasWhenPartOfProposal()
+  		
+  		Note. This script depends on the follow and must be included within the test:
+		parties/suppliersTestData.xml
+		systemAdmin/userDataOneOfEachTestData.xml
+  		
+	 -->
+	 
+   	<acumen.addresses id="299" address_line_1="Test Address Line 1" address_line_2="Test Address Line 2" address_line_3="Test Address Line 3" zip_post_code="M50 2NT" city="Manchester" country="Test Country" type_of_place="Large" tenant_id="1" created_by="assetProposalTestData_duplicateExtrasBug.xml" version_number="0" last_updated_by="assetProposalTestData_duplicateExtrasBug.xml" />
+	<acumen.tel_numbers id="499" tel_no="1234567890" tenant_id="1" created_by="assetProposalTestData_duplicateExtrasBug.xml" last_updated_by="assetProposalTestData_duplicateExtrasBug.xml" version_number="0"/>
+	<acumen.emails id="399" email_address="test@aspeKt.kool.com" tenant_id="1" created_by="assetProposalTestData_duplicateExtrasBug.xml" last_updated_by="assetProposalTestData_duplicateExtrasBug.xml" version_number="0"/>
+	
+  	<!-- Lease asset with extras -->
+	<acumen.assets id="451" name="Spanner" company_id="10004" asset_status_id="10001" supplier_id="101" custodian_id="100" asset_number_part_1_id="10000" asset_number_part_2_id="10000" asset_number_part_3_id="10000" asset_number_part_4="10000" site_id="10000" location_id="10000" division_id="10000" department_id="10000" depreciation_code="10000" country_id="10000" category_id="10000" uid="das_bf_2277775602968850114"  description="test" serial_number="12345" supplier_pn="item1" is_a_facility="false" is_equipment="false" is_part="false" critical_asset="false" risk_assessment="false" bcp="false" tenant_id="1" version_number="1"/>
+	<acumen.lease_out id="481" assets_id="451" lease_type="10000" vat_code="10014" charge_period="10000" lease_charge="122.23" lease_commences="2990-01-04 00:00:00.000" lease_expires="2992-01-04 00:00:00.000" lease_period="12" lease_cost="50.21000000000000085264512824912120223045344912109375" lease_value="1000" lease_out_margin="123.43" location_postcode="M45 6TF" created_date="2014-05-08 18:53:43.47" tenant_id="1" created_by="assetProposalTestData_duplicateExtrasBug.xml" last_updated_by="assetProposalTestData_duplicateExtrasBug.xml" last_updated_date="2014-05-08 18:53:43.47"  version_number="0"/>
+	<acumen.lease_out_extras id="491" extras="10031" lease_out_id="481" extra_cost="10" tenant_id="1" created_by="assetProposalTestData_duplicateExtrasBug.xml" created_date="2014-05-08 18:53:43.47" last_updated_date="2014-05-08 18:53:43.47" last_updated_by="assetProposalTestData_duplicateExtrasBug.xml" version_number="0"/>
+	<acumen.lease_out_extras id="492" extras="10031" lease_out_id="481" extra_cost="50" tenant_id="1" created_by="assetProposalTestData_duplicateExtrasBug.xml" created_date="2014-05-08 18:53:43.47" last_updated_date="2014-05-08 18:53:43.47" last_updated_by="assetProposalTestData_duplicateExtrasBug.xml" version_number="0"/>
+  	<acumen.asset_schedule id="471" asset_id="451" lease_commences="2014-05-09" lease_expires="2014-05-10"  tenant_id="1" created_by="assetProposalTestData_duplicateExtrasBug.xml" created_date="2014-05-08 18:53:43.47" last_updated_by="assetProposalTestData_duplicateExtrasBug.xml" last_updated_date="2014-05-08 18:53:43.47" version_number="0"/>
+
+	<!-- Uses asset 451 - An asset with lease out and extras -->
+  	<acumen.asset_proposal id="440" asset_id="451" asset_schedule_id="471" address_id="299" email_id="399" telephone_id="499" client_party_id="101" contact_party_id="103" tenant_id="1" created_by="assetProposalTestData_duplicateExtrasBug.xml" created_date="2014-05-08 18:53:43.47" last_updated_by="assetProposalTestData_duplicateExtrasBug.xml" last_updated_date="2014-05-08 18:53:43.47" version_number="0"/>
+  	<acumen.asset_proposal_extras id="445" asset_id="451" proposal_id="440" lease_out_extras_id="491" tenant_id="1" created_by="assetProposalTestData_duplicateExtrasBug.xml" created_date="2014-05-08 18:53:43.47" last_updated_by="assetProposalTestData_duplicateExtrasBug.xml" last_updated_date="2014-05-08 18:53:43.47" version_number="0"/>
+  	<acumen.asset_proposal_extras id="446" asset_id="451" proposal_id="440" lease_out_extras_id="492" tenant_id="1" created_by="assetProposalTestData_duplicateExtrasBug.xml" created_date="2014-05-08 18:53:43.47" last_updated_by="assetProposalTestData_duplicateExtrasBug.xml" last_updated_date="2014-05-08 18:53:43.47" version_number="0"/>
+	<!-- The second proposal - This causes the bug -->
+  	<acumen.asset_proposal id="441" asset_id="451" asset_schedule_id="471" address_id="299" email_id="399" telephone_id="499" client_party_id="101" contact_party_id="103" tenant_id="1" created_by="assetProposalTestData_duplicateExtrasBug.xml" created_date="2014-05-08 18:53:43.47" last_updated_by="assetProposalTestData_duplicateExtrasBug.xml" last_updated_date="2014-05-08 18:53:43.47" version_number="0"/>
+  	<acumen.asset_proposal_extras id="447" asset_id="451" proposal_id="441" lease_out_extras_id="491" tenant_id="1" created_by="assetProposalTestData_duplicateExtrasBug.xml" created_date="2014-05-08 18:53:43.47" last_updated_by="assetProposalTestData_duplicateExtrasBug.xml" last_updated_date="2014-05-08 18:53:43.47" version_number="0"/>
+
+</dataset>

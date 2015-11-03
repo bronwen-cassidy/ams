@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<acumen.parties id="1" uid="das_pt_1216396282453037280" tenant_id="1" created_by="sje" created_date="2014-05-08 18:41:10.081" last_updated_by="sje" last_updated_date="2014-05-08 18:41:10.081" version_number="1"/>
+  	<acumen.parties id="2" uid="das_pt_1316396282453037280" tenant_id="1" created_by="sje" created_date="2014-05-08 18:52:28.73" last_updated_by="sje" last_updated_date="2014-05-08 18:52:28.73" version_number="1"/>
+	
+	<acumen.companies parties_id="1" name="Ace Suppliers Ltd" reg_no="1234" vat_no="929293" tenant_id="1" created_by="sje" created_date="2014-05-08 18:41:54.475" last_updated_by="sje" last_updated_date="2014-05-08 18:41:54.475"/>
+  	<acumen.people parties_id="1" forenames="Peter" surname="Griffin" gender="M" tenant_id="1" created_by="sje" created_date="2014-07-21 14:56:43.47" last_updated_by="sje" last_updated_date="2014-07-21 14:59:04.31"/>
+	
+	<acumen.addresses id="1" created_by="audit" last_updated_by="audit" address_line_1="1 Willow Lane" address_line_2="Manchester" address_line_3="Greater Manchester" zip_post_code="M42 7LY" country="England" type_of_place="wharehouse" city="Manchester" tenant_id="1" version_number="0"/>
+	<acumen.addresses id="2" created_by="audit" last_updated_by="audit" address_line_1="1 Willow Lane" address_line_2="Manchester" address_line_3="Greater Manchester" zip_post_code="M42 7LY" country="England" type_of_place="wharehouse" city="Manchester" tenant_id="1" version_number="0"/>
+	
+	<acumen.party_addresses id="1" parties_id="1"  addresses_id="1" address_type="Test Address Type" tenant_id="1" created_by="audit" last_updated_by="audit" version_number="0"/>
+</dataset>

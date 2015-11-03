@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+    <definition name="systemadmin.base" extends="das.base.template">
+    	<put-attribute name="title" value="System Admin" />
+        <put-attribute name="screenTitle" value="System Administation" />
+        <put-attribute name="scratchpad" value="systemadmin.scratchpads" />
+        <put-attribute name="menu" value="systemadmin.menus" />        
+        <put-attribute name="header" value="systemadmin.header.base" />
+    </definition>
+ 
+     <definition name="systemadmin.header.base" extends="das.header">
+    	<put-list-attribute name="navLinks">
+    		<add-attribute role="header.add" value="#"/>
+    		<add-attribute role="header.save" value="#"/>
+    		<add-attribute role="header.delete" value="#"/>
+    	</put-list-attribute>
+    </definition>
+ 
+    <definition name="systemadmin.menus" extends="das.menus">
+    	<put-list-attribute name="menuList">
+    		<add-attribute role="sideMenu.systemAdmin.userData" value="./das/systemAdmin/userData"/>
+    		<add-attribute role="sideMenu.systemAdmin.toDo" value="#"/>
+    		<add-attribute role="sideMenu.systemAdmin.toDo" value="#"/>
+    		<add-attribute role="sideMenu.systemAdmin.toDo" value="#"/>
+    	</put-list-attribute>
+    	
+    </definition>
+    
+    <definition name="systemadmin.scratchpads" extends="scratchpad.template">
+    	<put-list-attribute name="sps">
+    		<add-attribute value="scratchpad.assetSearch"/>
+    		<add-attribute value="scratchpad.name"/>
+    	</put-list-attribute>
+    </definition>
+ 
+ 	<!-- The System Admin landing screen -->
+    <definition name="systemadmin.home" extends="systemadmin.base">
+        <put-attribute name="body" value="/WEB-INF/jsp/systemAdmin/sysAdminHome.jsp" />
+    </definition>
+    
+    <!-- The System Admin list screen -->
+    <definition name="systemadmin.userData" extends="systemadmin.base">
+        <put-attribute name="body">
+        	<definition name="systemadmin.userDataContent" template="/WEB-INF/jsp/systemAdmin/userDataContent.jsp">
+        		<put-attribute name="listMenu" value="systemadmin.listmenu"/>
+        		<put-attribute name="editList" value="systemadmin.editlist"/>
+        	</definition>
+        </put-attribute>
+        <put-attribute name="menu">
+        	<definition extends="systemadmin.menus">
+        		<put-attribute name="activeMenu" value="User Data" />
+        	</definition>
+        </put-attribute>
+    </definition>
+    
+    <definition name="systemadmin.listmenu" template="/WEB-INF/jsp/systemAdmin/userDataLists.jsp"></definition>
+    
+    <definition name="systemadmin.editlist" template="/WEB-INF/jsp/systemAdmin/editList.jsp"></definition>
+    
+</tiles-definitions>

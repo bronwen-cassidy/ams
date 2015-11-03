@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<acumen.users id="1" user_name="BillyBob@brightfuture.co.uk" surname="Bob" forenames="Billy" version_number="1" password="testPass" enabled="true"/>
+	
+	<acumen.lists id="1" name="ListOne" entity_type="assets" users_id="1" tenant_id="1" created_by="audit" last_updated_by="audit" version_number="1"/> 
+	<acumen.lists id="2" name="ListTwo" entity_type="assets" users_id="1" tenant_id="1" created_by="audit" last_updated_by="audit" version_number="1"/>
+
+	<acumen.list_contents id="1" lists_id="1" created_by="audit" entity_id="1"/>
+	<acumen.list_contents id="2" lists_id="2" created_by="audit" entity_id="2"/> 
+</dataset>

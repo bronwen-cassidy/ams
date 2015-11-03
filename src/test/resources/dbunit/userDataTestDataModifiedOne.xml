@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<dataset reset_sequences="user_data_types_id_seq">
+  <acumen.user_data id="1" user_data_types_id="4" name="USA" ud_order="3" active="true" tenant_id="1" version_number="1"/>
+  <acumen.user_data id="2" user_data_types_id="4" name="Mining PLC" ud_order="2" active="true" tenant_id="1" version_number="1"/>
+  <acumen.user_data id="3" user_data_types_id="4" name="Level Crossing Ltd" ud_order="3" active="true" tenant_id="1" version_number="1"/>
+  <acumen.user_data id="4" user_data_types_id="4" name="Development" ud_order="2" active="true" tenant_id="1" version_number="2"/>
+</dataset>

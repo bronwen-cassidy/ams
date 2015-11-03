@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+          http://www.springframework.org/schema/security
+          http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+<!-- 
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:user-service>
+				<security:user name="Mark" authorities="admin"
+					password="letmein" />
+				<security:user name="Ej" authorities="admin" password="letmein" />
+			</security:user-service>
+		</security:authentication-provider>
+		
+				<security:authentication-provider>
+			<security:jdbc-user-service
+				data-source-ref="acumenDataSource" />
+		</security:authentication-provider>
+
+	</security:authentication-manager>
+
+<security:authentication-manager>
+<security:authentication-provider> 
+<security:password-encoder hash="plaintext"/>
+<security:jdbc-user-service 
+authorities-by-username-query="select acumen.authorities.user_name, authority as authority from acumen.authorities where acumen.authorities.user_name=?"
+data-source-ref="acumenDataSource" 
+users-by-username-query="select user_name as username, password as password, 'true' as enabled from acumen.users where user_name=?"></security:jdbc-user-service>
+</security:authentication-provider>
+</security:authentication-manager>
+ -->
+ 
+ 	<!-- Custom queries have been produced below as we already had a users table so could not use springs queries, however we MUST implement our own service OR have a custom way to prefix the query with a schema! -->
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:jdbc-user-service id="jdbcUserService"
+				data-source-ref="dataSource"
+				users-by-username-query="select user_name as username, password as password, enabled as enabled from acumen.users where user_name=?"
+					authorities-by-username-query="select acumen.users.user_name, acumen.authorities.authority as authority from acumen.users, acumen.authorities where acumen.users.id=acumen.authorities.users_id and acumen.users.user_name=?"/>
+				<security:password-encoder ref="passwordEncoder"></security:password-encoder>
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+	<!-- Spring will work its way down these urls looking for a match! so ensure 
+		most common stuff is at the top. -->
+	<security:http use-expressions="true">
+		<!-- This will check the authorities table so that only a user with the authority of "ROLE_ADMIN" can access the specified URL. -->
+		<security:intercept-url pattern="/das/systemAdmin" access="hasRole('ROLE_ADMIN')" />
+		
+		<security:intercept-url pattern="/das/splash/adduser" access="isAuthenticated()" />
+		<security:intercept-url pattern="/das/newAccount" access="permitAll()" />
+		<security:intercept-url pattern="/das/createAccount" access="permitAll()" />
+		<security:intercept-url pattern="/das/accountCreated" access="permitAll()" />
+		<security:intercept-url pattern="/das/systemAdmin" access="isAuthenticated()" />
+		<security:intercept-url pattern="/das/login" access="permitAll()" />
+		<security:intercept-url pattern="/das/loggedout" access="permitAll()" />
+		
+		<!-- All urls to controllers need to be fully authenticated. Unless specifically described above. -->
+		<security:intercept-url pattern="/das/**" access="isAuthenticated()" />
+		
+		<!-- Static resource files -->
+		<security:intercept-url pattern="/css/**" access="permitAll()" />
+		<security:intercept-url pattern="/js/**" access="permitAll()" />
+		<security:intercept-url pattern="/fonts/**" access="permitAll()" />
+		<security:intercept-url pattern="/images/**" access="permitAll()" />
+		<security:intercept-url pattern="/das/ucp/login" access="permitAll()" />
+		<security:intercept-url pattern="/das/print/**" access="permitAll()" />
+		<security:intercept-url pattern="/das/assetSearch/full" access="permitAll()" />	
+		<security:intercept-url pattern="/" access="permitAll()" />
+		<security:intercept-url pattern="/publicClientProposal/**" access="permitAll()" />
+		<!-- If Spring has not matched the url with any of above then always ensure access is denied. -->
+		<security:intercept-url pattern="/**" access="denyAll" />
+
+		<!-- Tells spring security where to start the authentication process and where to go upon a failure. -->
+		<security:form-login login-page="/das/login" authentication-failure-url="/das/login?error=true" />
+		<security:logout logout-success-url="/das/loggedout"/>
+		
+		<!-- This will remember the users password and ensure the user stays authenticated for a set period of time. To check this time - inspect element 
+		in chrome and look at the cookie '_spring_security_remember_me' and this will display an expires date, after that is ceased you must log in again. -->
+		<security:remember-me key="dasUserKey" user-service-ref="jdbcUserService"/>
+	</security:http>
+
+	<!-- Encripts our password in db on creation using a SHA algorithm, and upon login uses same algorithm to compare it so we never see it :) -->
+	<bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>
+
+</beans>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<!-- Top level contextMenu template which holds a list of click-able options 
+    <definition name="contextMenu.template" template="/WEB-INF/jsp/contextMenu/contextMenuTemplate.jsp">
+    </definition> 
+    -->
+    
+    
+ 	<!-- 
+ 	general context menu that will appear in most entity search results
+ 	 -->
+    <definition name="contextMenu.general" template="/WEB-INF/jsp/contextMenu/contextMenu.jsp">
+    	<put-attribute name="contextMenu.open" value="#"/>
+    	<put-attribute name="contextMenu.edit" value="${pageContext.request.contextPath}/das/assetController?assetId=${asset.id}"/>
+    	<put-attribute name="contextMenu.copy" value="#"/>
+    	<put-attribute name="contextMenu.paste" value="#"/>
+    	<put-attribute name="contextMenu.clone" value="#"/>
+    	<put-attribute name="contextMenu.multiEdit" value="#"/>
+    	<put-attribute name="contextMenu.multiAttach" value="#"/>
+    	<put-attribute name="contextMenu.addToList" value="/das/list/createView"/>
+    	<put-attribute name="contextMenu.addToGroup" value="/das/group/createGroup"/>
+    </definition>
+    
+    <!-- The list context menu will appear only when a user views items in a list -->
+    <definition name="contextMenu.list" template="/WEB-INF/jsp/contextMenu/contextMenuForListScreen.jsp">
+    	<put-attribute name="contextMenu.open" value="#"/>
+    	<put-attribute name="contextMenu.edit" value="${pageContext.request.contextPath}/das/assetController?assetId=${asset.id}"/>
+    	<put-attribute name="contextMenu.copy" value="#"/>
+    	<put-attribute name="contextMenu.paste" value="#"/>
+    	<put-attribute name="contextMenu.clone" value="#"/>
+    	<put-attribute name="contextMenu.multiEdit" value="#"/>
+    	<put-attribute name="contextMenu.multiAttach" value="#"/>
+    	<put-attribute name="contextMenu.addToList" value="/das/list/createView"/>
+    	<put-attribute name="contextMenu.removeFromList" value="/das/list/removeFromList"/>
+    	<put-attribute name="contextMenu.addToGroup" value="/das/group/createGroup"/>
+    </definition>
+    
+    <!-- The groups context menu will appear only when a user views items in a group -->
+    <definition name="contextMenu.group" template="/WEB-INF/jsp/contextMenu/contextMenuForGroupScreen.jsp">
+    	<put-attribute name="contextMenu.open" value="#"/>
+    	<put-attribute name="contextMenu.edit" value="${pageContext.request.contextPath}/das/assetController?assetId=${asset.id}"/>
+    	<put-attribute name="contextMenu.copy" value="#"/>
+    	<put-attribute name="contextMenu.paste" value="#"/>
+    	<put-attribute name="contextMenu.clone" value="#"/>
+    	<put-attribute name="contextMenu.multiEdit" value="#"/>
+    	<put-attribute name="contextMenu.multiAttach" value="#"/>
+    	<put-attribute name="contextMenu.addToList" value="/das/list/createView"/>
+    	<put-attribute name="contextMenu.removeFromGroup" value="/das/group/removeFromGroup"/>
+    	<put-attribute name="contextMenu.addToGroup" value="/das/group/createGroup"/>
+    </definition>
+    
+    <definition name="contextMenu.drafts" template="/WEB-INF/jsp/contextMenu/contextMenuForDrafts.jsp">
+    	<put-attribute name="contextMenu.edit" value="#"/>
+    	<put-attribute name="contextMenu.delete" value="#"/>
+    </definition>
+  </tiles-definitions>

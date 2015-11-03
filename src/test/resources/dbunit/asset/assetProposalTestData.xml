@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+  <!-- 
+		Asset Proposal IDs start at 140
+		Asset Proposal Extras IDs start at 145
+		
+		This script depends on the follow and must be included within the test:
+		asset/assetsTestData.xml
+		parties/emailsTelephoneEtcTestData.xml
+	 -->
+	
+	<!-- Uses asset 51 - An asset with lease out and extras -->
+  	<acumen.asset_proposal id="140" asset_id="51" asset_schedule_id="71" address_id="200" email_id="300" telephone_id="400" client_party_id="101" contact_party_id="103" tenant_id="1" created_by="assetProposalTestData.xml" created_date="2014-05-08 18:53:43.47" last_updated_by="assetProposalTestData.xml" last_updated_date="2014-05-08 18:53:43.47" version_number="0"/>
+  	<acumen.asset_proposal_extras id="145" asset_id="51" proposal_id="140" lease_out_extras_id="91" tenant_id="1" created_by="assetProposalTestData.xml" created_date="2014-05-08 18:53:43.47" last_updated_by="assetProposalTestData.xml" last_updated_date="2014-05-08 18:53:43.47" version_number="0"/>
+
+</dataset>

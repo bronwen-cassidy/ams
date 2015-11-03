@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="publicClientProposal.template"
+		template="/WEB-INF/jsp/publicClientProposal/publicClientProposalTemplate.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="body" value="" />
+	</definition>
+
+	<definition name="publicClientProposal.base" extends="publicClientProposal.template">
+		<put-attribute name="title" value="proposal" />
+		<put-attribute name="header" value="publicClientProposal.header"/>
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/publicClientProposal/publicClientProposalLanding.jsp" />
+	</definition>
+	
+	<definition name="publicClientProposal.header" extends="das.header">
+	</definition>
+
+	<definition name="publicClientProposal.proposalTerms"
+		extends="publicClientProposal.base">
+		<put-attribute name="title" value="proposal Terms" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/publicClientProposal/publicClientProposalTerms.jsp" />
+	</definition>
+
+	<definition name="publicClientProposal.declineProposal"
+		extends="publicClientProposal.base">
+		<put-attribute name="title" value="proposal Decline" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/publicClientProposal/publicClientProposalDecline.jsp" />
+	</definition>
+
+	<definition name="publicClientProposal.proposalConfirmation"
+		extends="publicClientProposal.base">
+		<put-attribute name="title" value="proposal Confirmation" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/publicClientProposal/publicClientProposalConfirmation.jsp" />
+	</definition>
+
+	<definition name="publicClientProposal.proposalAccepted"
+		extends="publicClientProposal.base">
+		<put-attribute name="title" value="proposal Accepted" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/publicClientProposal/publicClientProposalAccepted.jsp" />
+	</definition>
+	
+	<definition name="publicClientProposal.declineSubmit" extends="publicClientProposal.base">
+	<put-attribute name="title" value="proposal declineSubmitted"/>
+	<put-attribute name="body" value="/WEB-INF/jsp/publicClientProposal/publicClientProposalDeclineSubmit.jsp"/></definition>
+</tiles-definitions>

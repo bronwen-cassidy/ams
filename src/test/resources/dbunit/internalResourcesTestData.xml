@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<acumen.parties id="1" uid="party_uid_12345678912345" tenant_id="1" created_by="audit" created_date="2014-05-08 18:53:43.47" last_updated_by="audit" last_updated_date="2014-05-08 18:53:43.47" version_number="1"/>
+	  	  	
+  	<acumen.internal_resources parties_id="1" report_to="Team Leader" position="Developer" forenames="James" surname="Bond" gender="Male"/>
+</dataset>

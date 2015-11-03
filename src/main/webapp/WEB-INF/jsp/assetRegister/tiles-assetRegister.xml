@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<!-- Base Definition -->
+	<definition name="asset.register.base" extends="das.base.template">
+        <put-attribute name="title" value="Asset Register" />
+        <put-attribute name="screenTitle" value="Asset Register" />
+        <put-attribute name="header" value="asset.header.base" />
+        <put-attribute name="tabs" value="asset.maintabs.base" />
+        <put-attribute name="scratchpad" value="scratchpad.empty" />
+        <put-attribute name="menu" value="asset.register.menus" />
+    </definition>
+    
+    <!-- Header -->
+    <definition name="asset.header.base" extends="das.header">
+    </definition>
+    
+    <!-- Main Tabs -->
+    <definition name="asset.maintabs.base" extends="das.maintabs">
+    	<put-attribute name="activeTab" value="mainMenuTab.assets" />
+    </definition>
+    
+    <!-- Sidebar -->
+    <definition name="asset.register.menus" extends="das.menus">
+    	<put-list-attribute name="menuList">
+    		<add-attribute role="sideMenu.assets.assets" value="das/assetRegister"/>
+    		<add-attribute role="sideMenu.assets.myDrafts" value="das/assetRegister/myDrafts"/>
+			<add-attribute role="sideMenu.assets.myLists" value="das/list/myList"/>
+			<add-attribute role="sideMenu.assets.groups" value="das/group/groups"/>
+    		<add-attribute role="sideMenu.assets.calendar" value="#"/>
+    		<add-attribute role="sideMenu.assets.reports" value="das/reports"/>
+    	</put-list-attribute>
+    </definition>
+    
+    <definition name="contextmenu" extends="contextMenu.general">
+    </definition>
+    
+       	<!-- Draft Base view --> 
+   	<definition name="draft.register.base" extends="das.base.template">
+        <put-attribute name="title" value="Drafts" />
+        <put-attribute name="screenTitle" value="Draft Register" />
+        <put-attribute name="header" value="/WEB-INF/jsp/templates/draftHeader.jsp" />
+        <put-attribute name="tabs" value="asset.maintabs.base" />
+        <put-attribute name="menu" value="asset.register.menus" />
+    </definition>
+    
+ 	<!-- The Asset Register landing screen -->
+    <definition name="asset.register.home" extends="asset.register.base">
+    	<put-attribute name="menu">
+        	<definition extends="asset.register.menus">
+        		<put-attribute name="activeMenu" value="sideMenu.assets.assets" />
+        	</definition>
+        </put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/assetRegister/assetSearchResults.jsp"/>
+        <put-attribute name="contextmenu" value="contextMenu.general"/>
+        <put-attribute name="scratchpad">
+        	<definition extends="scratchpad.template">
+        		<put-list-attribute name="sps">
+		    		<add-attribute value="scratchpad.finance.preview"/>
+		    		<add-attribute value="scratchpad.custodian.preview"/>
+		    		<add-attribute value="scratchpad.faultcodes.preview"/>
+		    		<add-attribute value="scratchpad.docsimages.preview"/>
+		    		<add-attribute value="scratchpad.parts.preview"/>
+		    		<add-attribute value="scratchpad.groups.preview"/>
+		    		<add-attribute value="scratchpad.help.preview"/>
+		    	</put-list-attribute>
+        	</definition>
+        </put-attribute>
+    </definition>
+    
+    <!-- The list content landing screen -->
+    <definition name="list.content.assets" extends="asset.register.base">
+    	<put-attribute name="menu">
+        	<definition extends="asset.register.menus">
+        		<put-attribute name="activeMenu" value="sideMenu.assets.myLists" />
+        	</definition>
+        </put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/assetRegister/assetSearchResults.jsp"/>
+        <put-attribute name="contextmenu" value="contextMenu.list"/>
+        <put-attribute name="scratchpad">
+        	<definition extends="scratchpad.template">
+        		<put-list-attribute name="sps">
+		    		<add-attribute value="scratchpad.finance.preview"/>
+		    		<add-attribute value="scratchpad.custodian.preview"/>
+		    		<add-attribute value="scratchpad.faultcodes.preview"/>
+		    		<add-attribute value="scratchpad.docsimages.preview"/>
+		    		<add-attribute value="scratchpad.parts.preview"/>
+		    		<add-attribute value="scratchpad.groups.preview"/>
+		    		<add-attribute value="scratchpad.help.preview"/>
+		    	</put-list-attribute>
+        	</definition>
+        </put-attribute>
+    </definition>
+    
+     <!-- The group content landing screen -->
+    <definition name="group.content.assets" extends="asset.register.base">
+    	<put-attribute name="menu">
+        	<definition extends="asset.register.menus">
+        		<put-attribute name="activeMenu" value="sideMenu.assets.groups" />
+        	</definition>
+        </put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/assetRegister/assetSearchResults.jsp"/>
+        <put-attribute name="contextmenu" value="contextMenu.group"/>
+        <put-attribute name="scratchpad">
+        	<definition extends="scratchpad.template">
+        		<put-list-attribute name="sps">
+		    		<add-attribute value="scratchpad.finance.preview"/>
+		    		<add-attribute value="scratchpad.custodian.preview"/>
+		    		<add-attribute value="scratchpad.faultcodes.preview"/>
+		    		<add-attribute value="scratchpad.docsimages.preview"/>
+		    		<add-attribute value="scratchpad.parts.preview"/>
+		    		<add-attribute value="scratchpad.groups.preview"/>
+		    		<add-attribute value="scratchpad.help.preview"/>
+		    	</put-list-attribute>
+        	</definition>
+        </put-attribute>
+    </definition>
+    
+    <!-- The Print Asset View -->
+    <definition name="asset.register.print" extends="das.base.template">
+    	<put-attribute name="body" >
+        	<definition extends="das.print">
+        		<put-attribute name="printContents" value="/WEB-INF/jsp/assetRegister/printContents.jsp" />
+        	</definition>
+        </put-attribute>
+    </definition>
+    
+    <!-- The asset full search -->
+    <definition name="asset.register.search" extends="asset.register.base">
+    	<put-attribute name="menu">
+        	<definition extends="asset.register.menus">
+        		<put-attribute name="activeMenu" value="sideMenu.assets.assets" />
+        	</definition>
+        </put-attribute>
+    	<put-attribute name="screenTitle" value="assetRegister.asset.search.title" cascade="true"/>
+    	<put-attribute name="body" >
+        	<definition extends="das.search">
+        		<put-attribute name="searchContent" value="/WEB-INF/jsp/assetRegister/assetSearch.jsp" />
+        		<put-attribute name="contextmenu" value="contextMenu.general"/>
+        	</definition>
+        </put-attribute>
+        <put-attribute name="scratchpad">
+        	<definition extends="scratchpad.template">
+        		<put-list-attribute name="sps">
+		    		<add-attribute value="scratchpad.help"/>
+		    	</put-list-attribute>
+        	</definition>
+        </put-attribute>
+    </definition>
+    
+    <!-- The read only detailed view of the asset -->
+    <definition name="asset.register.assetDetails" extends="asset.register.base">
+        <put-attribute name="menu">
+        	<definition extends="asset.register.menus">
+        		<put-attribute name="activeMenu" value="sideMenu.assets.assets" />
+        	</definition>
+        </put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/assetRegister/assetDetails.jsp" />
+        <put-attribute name="scratchpad">
+        	<definition extends="scratchpad.template">
+        		<put-list-attribute name="sps">
+		    		<add-attribute value="scratchpad.finance"/>
+		    		<add-attribute value="scratchpad.custodian"/>
+		    		<add-attribute value="scratchpad.help"/>
+		    		<add-attribute value="scratchpad.faultcodes"/>
+		    		<add-attribute value="scratchpad.docsimages"/>
+		    		<add-attribute value="scratchpad.parts"/>
+		    		<add-attribute value="scratchpad.groups"/>
+		    	</put-list-attribute>
+        	</definition>
+        </put-attribute>
+    </definition>
+    
+    <!-- Create asset base. Specific Menu and SP. 'Create new asset' always active menu item-->
+    <definition name="asset.register.createAsset.base" extends="asset.register.base">
+        <put-attribute name="menu">
+        	<definition extends="asset.register.menus">
+        		<put-attribute name="activeMenu" value="sideMenu.assets.assets" />
+        	</definition>
+        </put-attribute>
+    </definition>
+ 
+ 	<definition name="asset.register.createAsset.tabs" extends="das.tabs">
+		<put-attribute name="tabsTitle" value="Create new Asset"/>
+    	<put-list-attribute name="tabs">
+    		<add-attribute role="assetRegister.asset.menuTab.general" value="./das/assetController/general"/>
+    		<add-attribute role="assetRegister.asset.menuTab.finance" value="./das/assetController/finance"/>
+    		<add-attribute role="assetRegister.asset.menuTab.tenure" value="./das/assetController/tenure"/>
+    		<add-attribute role="assetRegister.asset.menuTab.indemnities" value="./das/assetController/indemnities"/>
+    		<add-attribute role="assetRegister.asset.menuTab.maintenance" value="./das/assetController/maintenance"/>
+    		<add-attribute role="assetRegister.asset.menuTab.summary" value="./das/assetController/summary"/>
+    	</put-list-attribute>
+    </definition>
+    
+    <!-- Create Asset Tabs -->
+    <!-- General Tab -->
+    <definition name="asset.general" extends="asset.register.createAsset.base">
+        <put-attribute name="title" value="General" />
+        <put-attribute name="body">
+        	<definition extends="asset.register.createAsset.tabs">
+        		<put-attribute name="activeTab" value="assetRegister.asset.menuTab.general" />
+        		<put-attribute name="tabContent" value="/WEB-INF/jsp/assetRegister/createAsset/general-tab.jsp" />
+        	</definition>
+        </put-attribute>
+        <put-attribute name="scratchpad">
+        	<definition extends="scratchpad.template">
+        		<put-list-attribute name="sps">
+		    		<add-attribute value="scratchpad.assetSearch"/>
+		    		<add-attribute value="scratchpad.name"/>
+		    		<add-attribute value="scratchpad.finance"/>
+		    		<add-attribute value="scratchpad.custodian"/>
+		    		<add-attribute value="scratchpad.faultcodes"/>
+		    		<add-attribute value="scratchpad.docsimages"/>
+		    		<add-attribute value="scratchpad.parts"/>
+		    		<add-attribute value="scratchpad.groups"/>
+		    		<add-attribute value="scratchpad.help"/>
+		    	</put-list-attribute>
+        	</definition>
+        </put-attribute>
+    </definition>
+    
+    <!-- Tenure Tab --> 
+    <definition name="asset.tenure" extends="asset.register.createAsset.base">
+        <put-attribute name="title" value="Tenure" />
+        <put-attribute name="body">
+        	<definition extends="asset.register.createAsset.tabs">
+        		<put-attribute name="activeTab" value="assetRegister.asset.menuTab.tenure" />
+        		<put-attribute name="tabContent" value="/WEB-INF/jsp/assetRegister/createAsset/tenure-tab.jsp" />
+        	</definition>
+        </put-attribute>
+        <put-attribute name="scratchpad">
+        	<definition extends="scratchpad.template">
+        		<put-list-attribute name="sps">
+		    		<add-attribute value="scratchpad.finance"/>
+		    		<add-attribute value="scratchpad.docsimages"/>
+		    		<add-attribute value="scratchpad.help"/>
+		    	</put-list-attribute>
+        	</definition>
+        </put-attribute>
+    </definition>
+  
+    <!-- Finance Tab -->
+    <definition name="asset.finance" extends="asset.register.createAsset.base">
+        <put-attribute name="title" value="Finance" />
+        <put-attribute name="body">
+        	<definition extends="asset.register.createAsset.tabs">
+        		<put-attribute name="activeTab" value="assetRegister.asset.menuTab.finance" />
+        		<put-attribute name="tabContent" value="/WEB-INF/jsp/assetRegister/createAsset/finance-tab.jsp" />
+        	</definition>
+        </put-attribute>
+        <put-attribute name="scratchpad">
+        	<definition extends="scratchpad.template">
+        		<put-list-attribute name="sps">
+		    		<add-attribute value="scratchpad.finance"/>
+		    		<add-attribute value="scratchpad.help"/>
+		    	</put-list-attribute>
+        	</definition>
+        </put-attribute>
+    </definition>
+
+	<!-- Indemnities Tab -->
+    <definition name="asset.indemnities" extends="asset.register.createAsset.base">
+        <put-attribute name="title" value="Indemnities" />
+        <put-attribute name="body">
+        	<definition extends="asset.register.createAsset.tabs">
+        		<put-attribute name="activeTab" value="assetRegister.asset.menuTab.indemnities" />
+        		<put-attribute name="tabContent" value="/WEB-INF/jsp/assetRegister/createAsset/indemnities-tab.jsp" />
+        	</definition>
+        </put-attribute>
+        <put-attribute name="scratchpad">
+        	<definition extends="scratchpad.template">
+        		<put-list-attribute name="sps">
+		    		<add-attribute value="scratchpad.finance"/>
+		    		<add-attribute value="scratchpad.docsimages"/>
+		    		<add-attribute value="scratchpad.help"/>
+		    	</put-list-attribute>
+        	</definition>
+        </put-attribute>
+    </definition>
+ 
+	<!-- Maintenance Tab -->
+    <definition name="asset.maintenance" extends="asset.register.createAsset.base">
+        <put-attribute name="title" value="Maintenance" />
+        <put-attribute name="body">
+        	<definition extends="asset.register.createAsset.tabs">
+        		<put-attribute name="activeTab" value="assetRegister.asset.menuTab.maintenance" />
+        		<put-attribute name="tabContent" value="/WEB-INF/jsp/assetRegister/createAsset/maintenance-tab.jsp" />
+        	</definition>
+        </put-attribute>
+        <put-attribute name="scratchpad">
+        	<definition extends="scratchpad.template">
+        		<put-list-attribute name="sps">
+		    		<add-attribute value="scratchpad.coreskills"/>
+		    		<add-attribute value="scratchpad.faultcodes"/>
+		    		<add-attribute value="scratchpad.tags"/>
+		    		<add-attribute value="scratchpad.help"/>
+		    	</put-list-attribute>
+        	</definition>
+        </put-attribute>
+    </definition>
+    
+    	<!-- Summary Tab -->
+    <definition name="asset.summary" extends="asset.register.createAsset.base">
+        <put-attribute name="title" value="Summary" />
+        <put-attribute name="body">
+        	<definition extends="asset.register.createAsset.tabs">
+        		<put-attribute name="activeTab" value="assetRegister.asset.menuTab.summary" />
+        		<put-attribute name="tabContent" value="/WEB-INF/jsp/assetRegister/createAsset/summary-tab.jsp" />
+        	</definition>
+        </put-attribute>
+        <put-attribute name="scratchpad">
+        	<definition extends="scratchpad.template">
+        		<put-list-attribute name="sps">
+		    		<add-attribute value="scratchpad.assetSearch"/>
+		    		<add-attribute value="scratchpad.name"/>
+		    		<add-attribute value="scratchpad.finance"/>
+		    		<add-attribute value="scratchpad.custodian"/>
+		    		<add-attribute value="scratchpad.faultcodes"/>
+		    		<add-attribute value="scratchpad.docsimages"/>
+		    		<add-attribute value="scratchpad.parts"/>
+		    		<add-attribute value="scratchpad.groups"/>
+		    		<add-attribute value="scratchpad.help"/>
+		    	</put-list-attribute>
+        	</definition>
+        </put-attribute>
+    </definition>
+
+   	<!-- My Drafts -->
+    <definition name="drafts.summary" extends="draft.register.base">
+        <put-attribute name="menu">
+        	<definition extends="asset.register.menus">
+        		<put-attribute name="activeMenu" value="sideMenu.assets.myDrafts" />
+        	</definition>
+        </put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/dasacumen/draftSearchResults.jsp" />
+        <put-attribute name="contextmenu" value="contextMenu.drafts"/>
+        <put-attribute name="scratchpad">
+        	<definition extends="scratchpad.template">
+        		<put-list-attribute name="sps">
+		    		<add-attribute value="scratchpad.finance.preview"/>
+		    		<add-attribute value="scratchpad.custodian.preview"/>
+		    		<add-attribute value="scratchpad.faultcodes.preview"/>
+		    		<add-attribute value="scratchpad.docsimages.preview"/>
+		    		<add-attribute value="scratchpad.parts.preview"/>
+		    		<add-attribute value="scratchpad.groups.preview"/>
+		    		<add-attribute value="scratchpad.help.preview"/>
+		    	</put-list-attribute>
+        	</definition>
+        </put-attribute>
+    </definition>
+    
+    <definition name="asset.report.fakereport" extends="asset.register.base">
+  		<put-attribute name="body" value="/WEB-INF/jsp/assetRegister/fakereport.jsp"/>
+    	
+    </definition>
+    
+    <definition name="page.myList.myList" extends="asset.register.base">
+  		<put-attribute name="body" value="/WEB-INF/jsp/dasacumen/myList.jsp"/>
+  		<put-attribute name="menu">
+        	<definition extends="asset.register.menus">
+        		<put-attribute name="activeMenu" value="sideMenu.assets.myLists" />
+        	</definition>
+        </put-attribute>
+    	
+    </definition>
+    <definition name="page.groups.groups" extends="asset.register.base">
+  		<put-attribute name="body" value="/WEB-INF/jsp/assetRegister/groups.jsp"/>
+  		<put-attribute name="menu">
+        	<definition extends="asset.register.menus">
+        		<put-attribute name="activeMenu" value="sideMenu.assets.groups" />
+        	</definition>
+        </put-attribute>
+    </definition>
+    
+</tiles-definitions>

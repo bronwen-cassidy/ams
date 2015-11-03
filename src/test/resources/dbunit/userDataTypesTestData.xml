@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<dataset>
+  <acumen.user_data_cat id="14" name="Asset Register" description="todo" language_code="systemAdmin.user.userData.assetRegister" desc_code="todo" created_by="audit" created_date="2001-01-04 00:00:00.000" last_updated_by="audit" last_updated_date="2021-01-04 00:00:00.000"/>
+  <acumen.user_data_types id="150" user_data_cat_id="14" name="USA" value_required="true" user_data_value_type="test type" description="Description" lang_code="Lang code" desc_code="todo" created_by="audit" created_date="2001-01-04 00:00:00.000" last_updated_by="audit" last_updated_date="2021-01-04 00:00:00.000" version_number="1"/>
+  <acumen.user_data id="1" user_data_types_id="150" name="USA" ud_order="3" active="true" tenant_id="1" version_number="1"/>
+</dataset>

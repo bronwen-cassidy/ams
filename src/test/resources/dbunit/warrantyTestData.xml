@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+  <!-- 
+		warranty IDs start at 200
+		
+		This script depends on the follow and must be included within the test:
+		parties/suppliersTestData.xml
+		parties/emailsTelephoneEtcTestData.xml
+		systemAdmin/userDataOneOfEachTestData.xml
+		asset/assetsTestData.xml
+	 -->
+	 
+	  <acumen.warranty_policies id="200" warranties_supplier_id="100" warranties_type_id="10000" commencement_date="2000-11-10" expiry_date="2050-11-10" om="false" policy_number="XYZALPHA123445533" cost="2000.4600000000000363797880709171295166015625" tenant_id="1" created_by="audit" created_date="2001-01-04 00:00:00.000" last_updated_by="audit" last_updated_date="2021-01-04 00:00:00.000" version_number="0"/>
+	
+</dataset>

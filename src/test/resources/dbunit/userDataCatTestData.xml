@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<dataset>
+  <acumen.user_data_cat id="1" name="Asset Register" description="todo" language_code="systemAdmin" desc_code="todo" created_by="audit" created_date="2001-01-04 00:00:00.000" last_updated_by="audit" last_updated_date="2021-01-04 00:00:00.000" version_number="1"/>
+  <acumen.user_data_cat id="2" name="Finance" description="todo" language_code="systemAdmin.user.userData.finance" desc_code="todo" created_by="sje" created_date="2014-05-06 12:50:30.293" last_updated_by="sje" last_updated_date="2014-05-06 12:50:30.293"/>
+  <acumen.user_data_cat id="3" name="Maintenance" description="todo" language_code="systemAdmin.user.userData.maintenance" desc_code="todo" created_by="sje" created_date="2014-05-06 12:50:30.293" last_updated_by="sje" last_updated_date="2014-05-06 12:50:30.293"/>
+  <acumen.user_data_cat id="4" name="Parts" description="todo" language_code="systemAdmin.user.userData.parts" desc_code="todo" created_by="sje" created_date="2014-05-06 12:50:30.293" last_updated_by="sje" last_updated_date="2014-05-06 12:50:30.293"/>
+
+  <acumen.user_data_cat id="5" user_data_cat_parent_id="1" name="Asset" description="todo" language_code="systemAdmin.user.userData.asset" desc_code="todo" created_by="sje" created_date="2014-05-07 12:33:22.968" last_updated_by="sje" last_updated_date="2014-05-07 12:33:22.968"/>
+  <acumen.user_data_cat id="6" user_data_cat_parent_id="1" name="Something else" description="todo" language_code="systemAdmin.user.userData.somethingElse" desc_code="todo" created_by="sje" created_date="2014-05-07 12:33:22.968" last_updated_by="sje" last_updated_date="2014-05-07 12:33:22.968"/>
+
+  <acumen.user_data_cat id="7" user_data_cat_parent_id="5" name="General" description="todo" language_code="systemAdmin.user.userData.asset.general" desc_code="todo" created_by="sje" created_date="2014-05-07 12:33:22.968" last_updated_by="sje" last_updated_date="2014-05-07 12:33:22.968"/>
+  <acumen.user_data_cat id="8" user_data_cat_parent_id="5" name="Finance" description="todo" language_code="systemAdmin.user.userData.asset.finance" desc_code="todo" created_by="sje" created_date="2014-05-07 12:33:22.968" last_updated_by="sje" last_updated_date="2014-05-07 12:33:22.968"/>
+  <acumen.user_data_cat id="9" user_data_cat_parent_id="5" name="Tenure" description="todo" language_code="systemAdmin.user.userData.asset.tenure" desc_code="todo" created_by="sje" created_date="2014-05-07 12:33:22.968" last_updated_by="sje" last_updated_date="2014-05-07 12:33:22.968"/>
+  <acumen.user_data_cat id="10" user_data_cat_parent_id="5" name="Maintenance" description="todo" language_code="systemAdmin.user.userData.asset.maintenance" desc_code="todo" created_by="sje" created_date="2014-05-07 12:33:22.968" last_updated_by="sje" last_updated_date="2014-05-07 12:33:22.968"/>
+  <acumen.user_data_cat id="11" user_data_cat_parent_id="5" name="Indemnities" description="todo" language_code="systemAdmin.user.userData.asset.indemnities" desc_code="todo" created_by="sje" created_date="2014-05-07 12:33:22.968" last_updated_by="sje" last_updated_date="2014-05-07 12:33:22.968"/>
+  <acumen.user_data_cat id="12" user_data_cat_parent_id="6" name="Stuff" description="todo" language_code="systemAdmin.user.userData.stuff" desc_code="todo" created_by="sje" created_date="2014-05-07 12:33:22.968" last_updated_by="sje" last_updated_date="2014-05-07 12:33:22.968"/>
+  
+  <acumen.user_data_types id="1" parent_id="1" user_data_cat_id="1" name="USA" value_required="true" user_data_value_type="test type" description="Description" lang_code="Lang code" desc_code="todo" created_by="audit" created_date="2001-01-04 00:00:00.000" last_updated_by="audit" last_updated_date="2021-01-04 00:00:00.000" version_number="1"/>
+</dataset>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+  <!-- 
+		insurance IDs start at 505
+		
+		This script depends on the following and must be included within the test:
+		parties/suppliersTestData.xml
+	 -->
+  
+  	<acumen.insurance_policies id="505" insurance_supplier_id="101" commencement_date="2000-11-10" expiry_date="2050-11-10" policy_number="QWERTYUIOPSD" cost="2000.4600000000000363797880709171295166015625" tenant_id="1" created_by="audit" created_date="2001-01-04 00:00:00.000" last_updated_by="audit" last_updated_date="2021-01-04 00:00:00.000" version_number="0"/>
+  
+</dataset>

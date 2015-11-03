@@ -1,0 +1,3 @@
+\i test_db/CreateTestDBAndUser.sql 
+\i main_db/AlterUserDasSU.sql
+\q

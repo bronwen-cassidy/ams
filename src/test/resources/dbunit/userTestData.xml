@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+  <!-- 
+		Users and user authority ids start at 600
+		
+		Both are entered inside of here because user authority is not used anywhere else and should always be attached to a user.
+		
+		This script depends on the follow and must be included within the test:
+		no dependencies
+	 -->
+	<acumen.users id="600" user_name="testUser" surname="Test Surname" forenames="Test Forename"  password="testPass" enabled="true" tenant_id="1" created_by="suppliersTestData.xml" created_date="2014-05-08 18:41:54.475" last_updated_by="suppliersTestData.xml" last_updated_date="2014-05-08 18:41:54.475" version_number="0" />
+	<acumen.authorities id="600" users_id="600" authority="READ" tenant_id="1" created_by="suppliersTestData.xml" created_date="2014-05-08 18:41:54.475" last_updated_by="suppliersTestData.xml" last_updated_date="2014-05-08 18:41:54.475" version_number="0" />
+</dataset>

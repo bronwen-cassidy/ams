@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!-- 
+	Test data for User Data.
+	Assumes that the Permanent DB data for User Data types and Categories exists within the DB already
+	IDs start from 10,001
+	
+	Fake user data entry of 10,000 when the type is not important. 
+	
+	One of every user data, IN ORDER!! Not complete, just add the one you need in the correct order and with a corresponding id. ie type 15 should be 10015
+ -->
+<dataset>
+	<!-- Fake User data for general use  -->
+ 	<acumen.user_data id="10000" user_data_types_id="1" name="dummy"  ud_order="1" active="true" tenant_id="1" version_number="1" created_by="userDataOneOfEachTestData.xml" created_date="2014-08-08 18:41:10" last_updated_by="userDataOneOfEachTestData.xml" last_updated_date="2014-08-08 18:41:10"/>
+
+	<!-- User data for type 1 - 'Statuses' -->
+ 	<acumen.user_data id="10001" user_data_types_id="1" name="Good"  ud_order="1" active="true" tenant_id="1" version_number="1" created_by="userDataOneOfEachTestData.xml" created_date="2014-08-08 18:41:10" last_updated_by="userDataOneOfEachTestData.xml" last_updated_date="2014-08-08 18:41:10"/>
+	<!-- User data for type 2 - 'Categories' -->
+ 	<acumen.user_data id="10002" user_data_types_id="2" name="DIY"  ud_order="1" active="true" tenant_id="1" version_number="1" created_by="userDataOneOfEachTestData.xml" created_date="2014-08-08 18:41:10" last_updated_by="userDataOneOfEachTestData.xml" last_updated_date="2014-08-08 18:41:10"/>
+	<!-- User data for type 3 - 'Country' -->
+ 	<acumen.user_data id="10003" user_data_types_id="3" name="Spain"  ud_order="1" active="true" tenant_id="1" version_number="1" created_by="userDataOneOfEachTestData.xml" created_date="2014-08-08 18:41:10" last_updated_by="userDataOneOfEachTestData.xml" last_updated_date="2014-08-08 18:41:10"/>
+	<!-- User data for type 4 - 'Company' -->
+ 	<acumen.user_data id="10004" user_data_types_id="4" name="Google"  ud_order="1" active="true" tenant_id="1" version_number="1" created_by="userDataOneOfEachTestData.xml" created_date="2014-08-08 18:41:10" last_updated_by="userDataOneOfEachTestData.xml" last_updated_date="2014-08-08 18:41:10"/>
+	<!-- User data for type 5 - 'Division' -->
+ 	<acumen.user_data id="10005" user_data_types_id="5" name="Marketing"  ud_order="1" active="true" tenant_id="1" version_number="1" created_by="userDataOneOfEachTestData.xml" created_date="2014-08-08 18:41:10" last_updated_by="userDataOneOfEachTestData.xml" last_updated_date="2014-08-08 18:41:10"/>
+
+	<!-- User data for type 14 - 'VAT' -->
+ 	<acumen.user_data id="10014" user_data_types_id="14" name="T1 - standard rate" value="20" ud_order="1" active="true" tenant_id="1" version_number="1" created_by="userDataOneOfEachTestData.xml" created_date="2014-08-08 18:41:10" last_updated_by="userDataOneOfEachTestData.xml" last_updated_date="2014-08-08 18:41:10"/>
+
+	<!-- User data for type 31 - Lease out 'Optional Extra' -->
+ 	<acumen.user_data id="10031" user_data_types_id="31" name="Maintenace" ud_order="1" active="true" tenant_id="1" version_number="1" created_by="userDataOneOfEachTestData.xml" created_date="2014-08-08 18:41:10" last_updated_by="userDataOneOfEachTestData.xml" last_updated_date="2014-08-08 18:41:10"/>
+
+
+</dataset>
+
+<!--  -->

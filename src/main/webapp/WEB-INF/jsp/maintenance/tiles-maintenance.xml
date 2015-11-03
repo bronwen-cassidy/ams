@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<!-- Base Definition -->
+	<definition name="maintenance.base" extends="das.base.template">
+        <put-attribute name="title" value="maintenance Register" />
+        <put-attribute name="screenTitle" value="maintenance Register" />
+        <put-attribute name="header" value="maintenance.header.base" />
+        <put-attribute name="tabs" value="maintenance.maintabs" />
+        <put-attribute name="scratchpad" value="scratchpad.empty" />
+        <put-attribute name="menu" value="maintenance.menus" />
+    </definition>
+    
+     <!-- Header -->
+    <definition name="maintenance.header.base" extends="das.header">
+    </definition>
+    
+    <!-- Main Tabs -->
+    <definition name="maintenance.maintabs" extends="das.maintabs">
+		<put-attribute name="activeTab" value="mainMenuTab.maintenance" />
+    </definition>
+    
+    <!-- Sidebar -->
+    <definition name="maintenance.menus" extends="das.menus">
+    	<put-list-attribute name="menuList">
+    		<add-attribute role="sideMenu.maintenance.requests" value="#"/>
+    		<add-attribute role="sideMenu.maintenance.maintenanceGroups" value="#"/>
+    		<add-attribute role="sideMenu.maintenance.calendar" value="#"/>
+    		<add-attribute role="sideMenu.maintenance.reports" value="#"/>
+    	</put-list-attribute> 
+    </definition>
+    
+ 	<!-- The resources landing screen -->
+    <definition name="maintenance.home" extends="maintenance.base">
+        <put-attribute name="body" value="/WEB-INF/jsp/maintenance/maintenanceLandingScreen.jsp" />
+        <put-attribute name="scratchpad">
+        	<definition extends="scratchpad.template">
+        		<put-list-attribute name="sps">
+		    		<add-attribute value="scratchpad.finance"/>
+		    		<add-attribute value="scratchpad.custodian"/>
+		    		<add-attribute value="scratchpad.help"/>
+		    		<add-attribute value="scratchpad.faultcodes"/>
+		    		<add-attribute value="scratchpad.docsimages"/>
+		    		<add-attribute value="scratchpad.parts"/>
+		    		<add-attribute value="scratchpad.groups"/>
+		    	</put-list-attribute>
+        	</definition>
+        </put-attribute>
+    </definition>
+</tiles-definitions>

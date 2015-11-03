@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd" updateCheck="false">	
+	
+	<diskStore path="java.io.tmpdir/ehcache" />
+ 
+ 	<!-- 
+ 		This is very much in test phase. Nothing production ready yet without a lot more testing
+ 	
+ 	 -->
+ 
+    <defaultCache maxEntriesLocalHeap="10000" eternal="false"
+        timeToIdleSeconds="120" timeToLiveSeconds="120" diskSpoolBufferSizeMB="30"
+        maxEntriesLocalDisk="10000000" diskExpiryThreadIntervalSeconds="120"
+        memoryStoreEvictionPolicy="LRU" >
+        <persistence strategy="localTempSwap" />
+    </defaultCache>
+    
+    <!-- tenant specific User Data -->
+	<cache name="userDataCache" eternal="false"
+        maxElementsInMemory="400" overflowToDisk="false" diskPersistent="false"
+        timeToIdleSeconds="0" timeToLiveSeconds="300"
+        memoryStoreEvictionPolicy="LRU" 
+        statistics="true"/>
+    
+ <!--
+    <cache name="employee" maxEntriesLocalHeap="10000" eternal="false"
+        timeToIdleSeconds="5" timeToLiveSeconds="10">
+        <persistence strategy="localTempSwap" />
+    </cache>
+ 
+    <cache name="org.hibernate.cache.internal.StandardQueryCache"
+        maxEntriesLocalHeap="5" eternal="false" timeToLiveSeconds="120">
+        <persistence strategy="localTempSwap" />
+    </cache>
+ 
+    <cache name="org.hibernate.cache.spi.UpdateTimestampsCache"
+        maxEntriesLocalHeap="5000" eternal="true">
+        <persistence strategy="localTempSwap" />
+    </cache> -->
+    
+	<!-- Cache for all the non e tenant specific User data Types and Categories -->
+	<cache name="userDataTypesCache" eternal="false"
+        maxElementsInMemory="100" overflowToDisk="false" diskPersistent="false"
+        timeToIdleSeconds="0" timeToLiveSeconds="3000"
+        memoryStoreEvictionPolicy="LRU" 
+        statistics="true"/>
+</ehcache>

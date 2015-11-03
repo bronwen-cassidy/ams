@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+  <acumen.parties id="1" uid="das_pt_1216396282453037280" tenant_id="1" created_by="sje" created_date="2014-05-08 18:41:10.081" last_updated_by="sje" last_updated_date="2014-05-08 18:41:10.081" version_number="1"/>
+  <acumen.parties id="2" uid="das_pt_1316396282453037280" tenant_id="1" created_by="sje" created_date="2014-05-08 18:52:28.73" last_updated_by="sje" last_updated_date="2014-05-08 18:52:28.73" version_number="1"/>
+
+  <acumen.companies parties_id="1" name="Churchill Ltd" reg_no="1234" vat_no="929293" tenant_id="1" created_by="sje" created_date="2014-05-08 18:41:54.475" last_updated_by="sje" last_updated_date="2014-05-08 18:41:54.475" />
+  <acumen.people parties_id="2" forenames="James" surname="Insurance" gender="Male" tenant_id="1" created_by="sje" created_date="2014-05-08 18:53:43.47" last_updated_by="sje" last_updated_date="2014-05-08 18:53:43.47" />
+  
+  <acumen.user_data id="1" user_data_types_id="1" name="Consumer guarantees" ud_order="2" active="true" tenant_id="1" version_number="1"/>
+  <acumen.user_data id="2" user_data_types_id="1" name="Express warranties" ud_order="3" active="true" tenant_id="1" version_number="1"/>
+  
+  <acumen.tenants id="1" bucket_name="BUCKET1234" company_name="JLA" created_by="JamesWesker@jla.co.uk" created_date="2001-01-04 00:00:00.000" last_updated_by="chrisredfield@jla.co.uk" last_updated_date="2021-01-04 00:00:00.000" version_number="0"/>
+  <acumen.tenants id="2" bucket_name="BUCKET4321" company_name="GAME" created_by="JamesWesker@jla.co.uk" created_date="2001-01-04 00:00:00.000" last_updated_by="chrisredfield@jla.co.uk" last_updated_date="2021-01-04 00:00:00.000" version_number="0"/>
+  
+  <acumen.docs id="1" tenants_id="1" object_key="FilePathOnS3" doc_type="MAINIMAGE" tenant_id="1" created_by="audit" last_updated_by="audit" version_number="0"/>
+</dataset>
